@@ -1,0 +1,208 @@
+@extends('layouts.app')
+
+@section('title', 'CV ATS Friendly')
+
+@section('content')
+<section class="relative pt-20 pb-12 md:pt-32 md:pb-20 gradient-hero overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-3 md:px-6 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white/90 text-xs md:text-sm mb-6">
+                <i class="fas fa-briefcase"></i>
+                <span>Kebutuhan Lamar Pekerjaan</span>
+            </div>
+            <h1 class="text-2xl md:text-5xl font-bold text-white mb-6">CV ATS-Friendly</h1>
+            <p class="text-sm md:text-lg text-white/80 mb-8 max-w-2xl mx-auto">CV yang optimize untuk lolos sistem ATS (Applicant Tracking System) perusahaan besar. Meningkatkan peluang CV Anda dibaca HRD.</p>
+            <div class="flex flex-wrap items-center justify-center gap-4 text-white/90">
+                <div class="flex items-center gap-2">
+                    <i class="far fa-clock"></i>
+                    <span>3 Jam</span>
+                </div>
+                <div class="w-px h-6 bg-white/20"></div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-tag"></i>
+                    <span class="text-2xl font-bold">Rp {{ number_format($service->price, 0, ',', '.') }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Tentang Layanan Ini</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+                Banyak perusahaan besar menggunakan sistem ATS untuk menyaring ribuan CV yang masuk. CV ATS-Friendly dirancang khusus agar mudah dibaca oleh sistem ini, sehingga CV Anda lebih besar kemungkinannya lolos ke tahap interview.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+                Cocok untuk: Melamar di perusahaan multinasional, BUMN, startup besar, dan perusahaan yang menggunakan sistem rekrutmen online.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Yang Anda Dapatkan</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">ATS Optimized</h3>
+                        <p class="text-gray-600 text-sm">Format yang mudah dibaca oleh Applicant Tracking System</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Keyword Optimization</h3>
+                        <p class="text-gray-600 text-sm">Menggunakan keyword yang relevan dengan posisi yang dilamar</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Struktur Standar</h3>
+                        <p class="text-gray-600 text-sm">Layout clean tanpa tabel, kolom, atau grafik yang bikin ATS bingung</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Mudah Disesuaikan</h3>
+                        <p class="text-gray-600 text-sm">File Word yang bisa diedit untuk lamar posisi berbeda</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Highlight Achievements</h3>
+                        <p class="text-gray-600 text-sm">Pencapaian ditulis dengan format yang impactful</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-2">Format Word & PDF</h3>
+                        <p class="text-gray-600 text-sm">Dalam format .docx dan .pdf</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Cara Kerja</h2>
+            <div class="space-y-8">
+                <div class="flex gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">1</div>
+                    <div>
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">Kirim Data & Job Desc</h3>
+                        <p class="text-gray-600">Kirimkan data diri lengkap dan job description posisi yang ingin Anda lamar.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">2</div>
+                    <div>
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">Keyword Research</h3>
+                        <p class="text-gray-600">Kami analisis job desc untuk menentukan keyword yang harus ada di CV Anda.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">3</div>
+                    <div>
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">Penyusunan CV</h3>
+                        <p class="text-gray-600">CV disusun with ATS-friendly format dan keyword optimization.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">4</div>
+                    <div>
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">Testing & Delivery</h3>
+                        <p class="text-gray-600">CV di-test dengan ATS checker online sebelum dikirim ke Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Floating Bottom Bar -->
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-gray-200 shadow-2xl z-50">
+    <div class="container mx-auto px-4 py-5 md:px-6 md:py-4">
+        <div class="flex items-center justify-between gap-3 md:gap-6">
+            <!-- Left: Simple Back Link -->
+            <a href="{{ route('list-jasa') }}" class="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-all font-medium text-sm md:text-base">
+                <i class="fas fa-arrow-left"></i>
+                <span>Kembali <span class="hidden sm:inline">ke List Harga</span></span>
+            </a>
+
+            <!-- Right: Service Info + Order Button -->
+            <div class="flex items-center gap-3 md:gap-6">
+                <!-- Service Info (Desktop Only) -->
+                <div class="hidden md:flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-gray-700 flex-shrink-0">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-base leading-tight">{{ $service->name }}</h3>
+                        <p class="text-lg font-extrabold text-gray-900 mt-0.5">Rp {{ number_format($service->price, 0, ',', '.') }}</p>
+                    </div>
+                </div>
+
+                <!-- Service Info (Mobile - Left of Button) -->
+                <div class="md:hidden flex-1">
+                        <div class="text-xs text-gray-600 font-medium text-right">{{ $service->name }}</div>
+                        <div class="text-sm font-bold text-gray-900 text-right">Rp {{ number_format($service->price, 0, ',', '.') }}</div>
+</div>
+
+                <!-- Order Button -->
+                    <button data-service-name="{{ $service->name }}" data-service-price="{{ $service->price }}" id="pay-button-cv" class="flex items-center justify-center gap-2 px-4 py-2.5 md:px-8 md:py-3 gradient-primary text-white font-semibold rounded-xl hover:opacity-90 transition-all shadow-lg text-sm md:text-base cursor-pointer">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Order & Bayar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add padding to bottom of page for floating bar -->
+<div class="h-24 md:h-20"></div>
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const payButton = document.getElementById('pay-button-cv');
+        if (payButton) {
+            payButton.addEventListener('click', function() {
+                const serviceName = this.dataset.serviceName;
+                const servicePrice = parseInt(this.dataset.servicePrice);
+                // Use CV modal instead of regular payment modal
+                triggerPaymentCV(serviceName, servicePrice);
+            });
+        }
+    });
+</script>
+@endpush
+@endsection
