@@ -29,87 +29,6 @@
     <meta property="twitter:image" content="{{ asset('image/dyanaf-logo-circle.png') }}">
 
     <title>@yield('title', 'Dyanaf Store')</title>
-    <!-- Schema.org JSON-LD Structured Data for Rich Snippets -->
-    @verbatim
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org/",
-            "@type": "Product",
-            "name": "Jasa Pembuatan Website & Digital Marketing Dyanaf Store",
-            "image": "https://www.dyanaf.com/image/dyanaf-logo-circle.png",
-            "description": "Layanan pembuatan website profesional, CV kreatif, dan solusi digital marketing terpercaya.",
-            "brand": {
-                "@type": "Brand",
-                "name": "Dyanaf Store"
-            },
-            "sku": "DS-WEB-001",
-            "offers": {
-                "@type": "Offer",
-                "url": "https://www.dyanaf.com",
-                "priceCurrency": "IDR",
-                "price": "599000",
-                "priceValidUntil": "2025-12-31",
-                "availability": "https://schema.org/InStock",
-                "itemCondition": "https://schema.org/NewCondition"
-            },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.5",
-                "bestRating": "5",
-                "worstRating": "1",
-                "ratingCount": "120",
-                "reviewCount": "120"
-            },
-            "review": {
-                "@type": "Review",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                },
-                "author": {
-                    "@type": "Person",
-                    "name": "Pelanggan Dyanaf"
-                },
-                "reviewBody": "Pelayanan sangat cepat dan ramah, website selesai sesuai deadline."
-            }
-        }
-    </script>
-    @endverbatim
-
-    <!-- Organization Schema -->
-    @verbatim
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Dyanaf Store",
-            "alternateName": "Pembuatan Website & Joki Tugas",
-            "url": "https://www.dyanaf.com",
-            "logo": "https://www.dyanaf.com/image/dyanaf-logo-circle.png",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+6285881721193",
-                "contactType": "customer service",
-                "areaServed": "ID",
-                "availableLanguage": "Indonesian"
-            }
-        }
-    </script>
-    @endverbatim
-
-    <!-- WebSite Schema for Site Name in Search Results -->
-    @verbatim
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Dyanaf Store",
-            "alternateName": "Pembuatan Website & Joki Tugas",
-            "url": "https://www.dyanaf.com"
-        }
-    </script>
-    @endverbatim
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('image/dyanaf-logo-circle.png') }}">
@@ -125,63 +44,234 @@
     <!-- Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <style>
+        #neo-loader {
+            transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+        }
+        #neo-loader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        @keyframes mascot-pop {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.22); }
+        }
+
+        .animate-mascot-1,
+        .animate-mascot-2,
+        .animate-mascot-3 {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: mascot-pop 0.6s infinite ease-in-out;
+        }
+
+        .animate-mascot-1 { animation-delay: 0s; }
+        .animate-mascot-2 { animation-delay: 0.2s; }
+        .animate-mascot-3 { animation-delay: 0.4s; }
+
+        /* Floating Doodles Animations */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-14px) rotate(4deg); }
+        }
+
+        @keyframes float-reverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(14px) rotate(-4deg); }
+        }
+
+        .animate-float-slow { animation: float-slow 4.5s infinite ease-in-out; }
+        .animate-float-reverse { animation: float-reverse 5.5s infinite ease-in-out; }
+
+        #bg-doodles {
+            transform: translateY(60px);
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+            will-change: transform, opacity;
+        }
+
+        #bg-doodles.doodles-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .neo-box-doodle {
+            border: 2px solid #1a1a1a;
+            border-radius: 8px;
+        }
+    </style>
+
     @stack('styles')
 </head>
 
-<body class="font-sans antialiased text-gray-700 page-loading">
-    <!-- Loading Spinner -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-container">
-            <div class="loader-spinner">
-                <div class="ring ring-1"></div>
-                <div class="ring ring-2"></div>
-                <div class="ring ring-3"></div>
-                <div class="center-dot"></div>
+<body class="bg-[#faf8ef] text-slate-900 font-sans antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+    <!-- Floating Neo Doodles Background -->
+    <div id="bg-doodles" class="hidden xl:block pointer-events-none select-none absolute top-[140px] left-0 right-0 bottom-[350px] z-0 overflow-hidden">
+        <!-- Left Side Doodles -->
+        <div class="absolute top-[1%] left-3 2xl:left-8 animate-float-slow opacity-90">
+            <div class="neo-box-doodle bg-[#ffdd44] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] -rotate-6 flex items-center gap-1">
+                <span>⚡</span> E = mc²
             </div>
+        </div>
+
+        <div class="absolute top-[7%] left-4 2xl:left-10 animate-float-reverse opacity-90">
+            <div class="neo-box-doodle bg-[#8be4d6] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] rotate-3 flex items-center gap-1">
+                <span>🎬</span> ▶ PLAY
+            </div>
+        </div>
+
+        <div class="absolute top-[13%] left-3 2xl:left-8 animate-float-slow opacity-90">
+            <div class="neo-box-doodle bg-[#ff7f9d] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] -rotate-3 flex items-center gap-1">
+                <span>🧪</span> H₂O
+            </div>
+        </div>
+
+        <div class="absolute top-[26%] left-3 2xl:left-8 animate-float-slow opacity-90">
+            <div class="neo-box-doodle bg-[#c084fc] px-3.5 py-1.5 font-mono font-black text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] rotate-6 flex items-center gap-1">
+                <span>💻</span> &lt;/&gt;
+            </div>
+        </div>
+
+        <div class="absolute top-[33%] left-4 2xl:left-10 animate-float-reverse opacity-90">
+            <div class="neo-box-doodle bg-[#ffdd44] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] -rotate-6 flex items-center gap-1">
+                <span>🎧</span> 44.1kHz
+            </div>
+        </div>
+
+        <div class="absolute top-[53%] left-3 2xl:left-8 animate-float-slow opacity-90">
+            <div class="neo-box-doodle bg-[#8be4d6] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] -rotate-3 flex items-center gap-1">
+                <span>📑</span> Tugas_Rofiq.docx
+            </div>
+        </div>
+
+        <div class="absolute top-[73%] left-4 2xl:left-10 animate-float-reverse opacity-90">
+            <div class="neo-box-doodle bg-[#f7a027] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] -rotate-6 flex items-center gap-1">
+                <span>📄</span> CV_Rofiq.pdf
+            </div>
+        </div>
+
+        <div class="absolute top-[86%] left-4 2xl:left-10 animate-float-reverse opacity-90">
+            <div class="neo-box-doodle bg-[#1a1a1a] px-3 py-1.5 font-mono font-bold text-xs text-[#8be4d6] border-2 border-slate-900 shadow-[3px_3px_0px_0px_#8be4d6] -rotate-3">
+                &gt;_ main.js
+            </div>
+        </div>
+
+        <!-- Right Side Doodles -->
+        <div class="absolute top-[2%] right-3 2xl:right-8 animate-float-reverse opacity-90">
+            <div class="neo-box-doodle bg-[#ff7f9d] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] rotate-6 flex items-center gap-1">
+                <span>🚀</span> F = m · a
+            </div>
+        </div>
+
+        <div class="absolute top-[8%] right-4 2xl:right-10 animate-float-slow opacity-90">
+            <div class="neo-box-doodle bg-[#f7a027] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] -rotate-3 flex items-center gap-1">
+                <span>📷</span> RAW.cr2
+            </div>
+        </div>
+
+        <div class="absolute top-[28%] right-3 2xl:right-8 animate-float-reverse opacity-90">
+            <div class="neo-box-doodle bg-[#8be4d6] px-3.5 py-1.5 font-mono font-black text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] -rotate-3 flex items-center gap-1">
+                <span>⚙️</span> { ... }
+            </div>
+        </div>
+
+        <div class="absolute top-[47%] right-4 2xl:right-10 animate-float-slow opacity-90">
+            <div class="neo-box-doodle bg-[#ff7f9d] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] rotate-3 flex items-center gap-1">
+                <span>🎨</span> Layer_01
+            </div>
+        </div>
+
+        <div class="absolute top-[61%] right-4 2xl:right-10 animate-float-slow opacity-90">
+            <div class="neo-box-doodle bg-[#8be4d6] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] -rotate-3 flex items-center gap-1">
+                <span>🎵</span> Voice
+            </div>
+        </div>
+
+        <div class="absolute top-[87%] right-4 2xl:right-10 animate-float-slow opacity-90">
+            <div class="neo-box-doodle bg-[#8be4d6] px-3.5 py-1.5 font-mono font-extrabold text-xs text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] rotate-3 flex items-center gap-1">
+                <span>🌐</span> Host_SSL
+            </div>
+        </div>
+    </div>
+
+    <!-- Neo Brutalist Loader matching dyanaf-demo -->
+    <div id="neo-loader" class="fixed inset-0 z-[9999] bg-[#faf8ef] flex flex-col items-center justify-center">
+        <div class="bg-[#ffdd44] p-6 sm:p-8 flex flex-col items-center gap-4 text-center max-w-xs sm:max-w-sm border-[2.5px] border-slate-900 shadow-[8px_8px_0px_0px_#1a1a1a] rounded-2xl">
+            <svg class="w-48 sm:w-56 h-auto" viewBox="0 0 320 150" fill="none">
+                <g transform="translate(40, 30)">
+                    <g class="animate-mascot-1">
+                        <ellipse cx="45" cy="55" rx="35" ry="30" fill="#8be4d6" stroke="#1a1a1a" stroke-width="3"/>
+                        <path d="M 20 30 L 10 5 L 35 25 Z" fill="#8be4d6" stroke="#1a1a1a" stroke-width="3"/>
+                        <path d="M 70 30 L 80 5 L 55 25 Z" fill="#8be4d6" stroke="#1a1a1a" stroke-width="3"/>
+                        <circle cx="33" cy="50" r="4" fill="#1a1a1a"/>
+                        <circle cx="57" cy="50" r="4" fill="#1a1a1a"/>
+                        <circle cx="23" cy="58" r="4" fill="#ff7f9d"/>
+                        <circle cx="67" cy="58" r="4" fill="#ff7f9d"/>
+                        <path d="M 40 58 Q 45 64 50 58" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    </g>
+                </g>
+                <g transform="translate(110, 15)">
+                    <g class="animate-mascot-2">
+                        <ellipse cx="50" cy="65" rx="40" ry="35" fill="#f7a027" stroke="#1a1a1a" stroke-width="3"/>
+                        <circle cx="20" cy="35" r="14" fill="#f7a027" stroke="#1a1a1a" stroke-width="3"/>
+                        <circle cx="80" cy="35" r="14" fill="#f7a027" stroke="#1a1a1a" stroke-width="3"/>
+                        <ellipse cx="38" cy="60" rx="4" ry="6" fill="#1a1a1a"/>
+                        <ellipse cx="62" cy="60" rx="4" ry="6" fill="#1a1a1a"/>
+                        <ellipse cx="50" cy="70" rx="10" ry="7" fill="#ffffff" stroke="#1a1a1a" stroke-width="2"/>
+                        <path d="M 50 67 L 50 71 Q 50 75 46 75 M 50 71 Q 50 75 54 75" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    </g>
+                </g>
+                <g transform="translate(190, 25)">
+                    <g class="animate-mascot-3">
+                        <ellipse cx="40" cy="60" rx="30" ry="28" fill="#ffdd44" stroke="#1a1a1a" stroke-width="3"/>
+                        <path d="M 25 35 C 15 10 30 -5 35 30" fill="#ffdd44" stroke="#1a1a1a" stroke-width="3"/>
+                        <path d="M 55 35 C 65 10 50 -5 45 30" fill="#ffdd44" stroke="#1a1a1a" stroke-width="3"/>
+                        <circle cx="30" cy="55" r="3.5" fill="#1a1a1a"/>
+                        <circle cx="50" cy="55" r="3.5" fill="#1a1a1a"/>
+                        <path d="M 36 63 Q 40 67 44 63" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    </g>
+                </g>
+            </svg>
         </div>
     </div>
 
     @include('partials.navbar')
 
     <!-- Main Content -->
-    <main>
+    <main class="relative z-10">
         @yield('content')
     </main>
 
     @include('partials.footer')
 
     <script>
-        // Page Loading Handler
-        (function() {
-            const pageLoader = document.getElementById('pageLoader');
-            const body = document.body;
+        // Page Loading Handler matching dyanaf-demo
+        document.addEventListener('DOMContentLoaded', () => {
+            const neoLoader = document.getElementById('neo-loader');
+            const bgDoodles = document.getElementById('bg-doodles');
 
-            // Hide loader when page is fully loaded
-            function hideLoader() {
-                body.classList.remove('page-loading');
-                setTimeout(() => {
-                    pageLoader.classList.add('hidden');
-                }, 100);
+            if (neoLoader) {
+                const hideLoader = () => {
+                    neoLoader.classList.add('fade-out');
+                    if (bgDoodles) bgDoodles.classList.add('doodles-active');
+                    setTimeout(() => {
+                        neoLoader.style.display = 'none';
+                    }, 400);
+                };
+
+                if (document.readyState === 'complete') {
+                    setTimeout(hideLoader, 400);
+                } else {
+                    window.addEventListener('load', () => setTimeout(hideLoader, 400));
+                    setTimeout(hideLoader, 1000);
+                }
             }
 
-            // Show loader
-            function showLoader() {
-                pageLoader.classList.remove('hidden');
-                body.classList.add('page-loading');
-            }
-
-            // Hide loader on page load
-            if (document.readyState === 'complete') {
-                hideLoader();
-            } else {
-                window.addEventListener('load', hideLoader);
-            }
-
-            // Handle internal link navigation
+            // Handle internal link navigation loader
             document.addEventListener('click', function(e) {
                 const link = e.target.closest('a');
 
-                // Check if it's an internal link (not external, not anchor, not mailto, etc.)
                 if (link &&
                     link.href &&
                     link.href.startsWith(window.location.origin) &&
@@ -190,45 +280,13 @@
                     !link.href.startsWith('mailto:') &&
                     !link.href.startsWith('tel:')) {
 
-                    // Only show loader if navigating to a different page
-                    if (link.href !== window.location.href) {
-                        showLoader();
+                    if (link.href !== window.location.href && neoLoader) {
+                        neoLoader.style.display = 'flex';
+                        neoLoader.classList.remove('fade-out');
                     }
                 }
             });
-
-            // Handle browser back/forward buttons
-            window.addEventListener('pageshow', function(event) {
-                if (event.persisted) {
-                    hideLoader();
-                }
-            });
-
-            // Show loader before page unloads (for refreshes and navigation)
-            window.addEventListener('beforeunload', function() {
-                showLoader();
-            });
-        })();
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('translate-x-full');
-            mobileMenu.classList.toggle('translate-x-0');
         });
-
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('translate-x-full');
-                mobileMenu.classList.remove('translate-x-0');
-            });
-        });
-
-
-
     </script>
 
     <!-- Midtrans Snap -->
@@ -245,7 +303,6 @@
     @include('partials.qris-payment-prototype')
     @include('partials.va-payment-modal')
     @include('partials.gopay-payment-modal')
-
 
     @stack('scripts')
 </body>

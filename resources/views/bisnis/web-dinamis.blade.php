@@ -1,145 +1,128 @@
 @extends('layouts.app')
 
-@section('title', 'Web Dinamis')
+@section('title', $service->name)
 
 @section('content')
-<section class="relative pt-20 pb-12 md:pt-32 md:pb-20 gradient-hero overflow-hidden">
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
-    </div>
-    <div class="container mx-auto px-3 md:px-6 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white/90 text-xs md:text-sm mb-6">
-                <i class="fas fa-building"></i>
-                <span>Kebutuhan Bisnis</span>
-            </div>
-            <h1 class="text-2xl md:text-5xl font-bold text-white mb-6">Website Dinamis</h1>
-            <p class="text-sm md:text-lg text-white/80 mb-8 max-w-2xl mx-auto">Website full-featured dengan database, admin panel, dan fitur interaktif. Cocok untuk e-commerce, sistem informasi, atau web app.</p>
-            <div class="flex flex-wrap items-center justify-center gap-4 text-white/90">
-                <div class="flex items-center gap-2">
-                    <i class="far fa-clock"></i>
-                    <span>7 Hari</span>
-                </div>
-                <div class="w-px h-6 bg-white/20"></div>
-                <div class="flex items-center gap-2">
-                    <i class="fas fa-tag"></i>
-                    <span class="text-xl md:text-2xl font-bold">Rp {{ number_format($service->price, 0, ',', '.') }}</span>
-                </div>
-            </div>
+<!-- Hero Header Section Neo-brutalist Style -->
+<section class="py-10 md:py-14 bg-[#faf8ef] text-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#8be4d6] text-slate-900 border-2 border-slate-900 rounded-lg text-xs font-black mb-5 shadow-[3px_3px_0px_0px_#1a1a1a]">
+            <i class="fa-solid fa-code text-slate-900"></i>
+            <span>Kebutuhan Perusahaan & Bisnis</span>
         </div>
-    </div>
-</section>
 
-<section class="py-8 md:py-16 bg-white">
-    <div class="container mx-auto px-3 md:px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Tentang Layanan Ini</h2>
-            <p class="text-gray-600 leading-relaxed mb-4">
-                Website dinamis menggunakan database untuk menyimpan data dan memiliki fitur interaktif seperti login, CRUD (Create, Read, Update, Delete), dan dashboard admin. Cocok untuk bisnis yang memerlukan sistem manajemen konten atau e-commerce.
-            </p>
-            <p class="text-gray-600 leading-relaxed">
-                Teknologi: Laravel/CodeIgniter (PHP), MySQL, TailwindCSS/Bootstrap. Harga belum termasuk hosting.
-            </p>
-        </div>
-    </div>
-</section>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
+            {{ $service->name }}
+        </h1>
+        
+        <p class="font-sans text-sm sm:text-base text-slate-700 max-w-xl mx-auto mb-6">
+            Website full-featured dengan database, admin panel, dan fitur interaktif (e-commerce, sistem informasi, web app).
+        </p>
 
-<section class="py-8 md:py-16 bg-gray-50">
-    <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Yang Anda Dapatkan</h2>
-            <div class="grid md:grid-cols-2 gap-4 md:gap-6">
-                <div class="flex gap-4">
-                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Database Integration</h3>
-                        <p class="text-gray-600 text-sm">MySQL database untuk menyimpan semua data</p>
-                    </div>
+        <div class="inline-flex flex-wrap items-center justify-center gap-4 bg-white text-slate-900 border-2 border-slate-900 px-5 py-2.5 rounded-2xl shadow-[4px_4px_0px_0px_#1a1a1a]">
+            <div class="flex items-center gap-2.5 font-bold text-xs sm:text-sm">
+                <div class="w-7 h-7 rounded-lg bg-[#ffdd44] border-2 border-slate-900 flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900">
+                    <i class="fa-regular fa-clock text-xs"></i>
                 </div>
-                <div class="flex gap-4">
-                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Admin Panel</h3>
-                        <p class="text-gray-600 text-sm">Dashboard untuk manage konten dan data</p>
-                    </div>
+                <span>7 Hari</span>
+            </div>
+            <div class="w-px h-5 bg-slate-300"></div>
+            <div class="flex items-center gap-2.5 font-black text-sm sm:text-base">
+                <div class="w-7 h-7 rounded-lg bg-[#8be4d6] border-2 border-slate-900 flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900">
+                    <i class="fa-solid fa-tag text-xs"></i>
                 </div>
-                <div class="flex gap-4">
-                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Authentication System</h3>
-                        <p class="text-gray-600 text-sm">Login, register, dan role management</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
-                        <i class="fas fa-edit"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">CRUD Operations</h3>
-                        <p class="text-gray-600 text-sm">Create, Read, Update, Delete data dengan mudah</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Responsive</h3>
-                        <p class="text-gray-600 text-sm">Tampil sempurna di semua device</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center text-white flex-shrink-0">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Clean Code</h3>
-                        <p class="text-gray-600 text-sm">Source code yang rapi dan ter-dokumentasi</p>
-                    </div>
-                </div>
+                <span>Rp {{ number_format($service->price, 0, ',', '.') }}</span>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-8 md:py-16 bg-white">
-    <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-12 text-center">Cara Kerja</h2>
-            <div class="space-y-6 md:space-y-8">
-                <div class="flex gap-4 md:gap-6">
-                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">1</div>
+<!-- Main Details Section -->
+<section class="py-12 md:py-16 bg-[#faf8ef]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-12">
+        <div class="bg-white border-[2.5px] border-slate-900 p-6 sm:p-8 rounded-[24px] shadow-[6px_6px_0px_0px_#1a1a1a]">
+            <h2 class="text-2xl font-extrabold text-slate-900 mb-4">Tentang Layanan Ini</h2>
+            <div class="font-sans text-sm sm:text-base text-slate-700 space-y-4 leading-relaxed">
+                <p>
+                    Website dinamis menggunakan database untuk menyimpan data dan memiliki fitur interaktif seperti login, CRUD (Create, Read, Update, Delete), dan dashboard admin. Cocok untuk bisnis yang memerlukan sistem manajemen konten atau e-commerce.
+                </p>
+                <p>
+                    <strong>Teknologi:</strong> Laravel/CodeIgniter (PHP), MySQL, TailwindCSS/Bootstrap. Pengerjaan rapi, aman, dan mudah dioperasikan.
+                </p>
+            </div>
+        </div>
+
+        <div class="bg-white border-[2.5px] border-slate-900 p-6 sm:p-8 rounded-[24px] shadow-[6px_6px_0px_0px_#1a1a1a]">
+            <h2 class="text-2xl font-extrabold text-slate-900 mb-6 text-center">Yang Anda Dapatkan</h2>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div class="flex gap-4 items-start">
+                    <div class="w-10 h-10 rounded-[12px] bg-[#8be4d6] border-2 border-slate-900 flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 font-bold">
+                        ✓
+                    </div>
                     <div>
-                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">Requirement Gathering</h3>
-                        <p class="text-gray-600">Diskusi detail fitur yang dibutuhkan, user flow, dan database structure.</p>
+                        <h3 class="font-extrabold text-slate-900 text-base mb-1">Database Integration</h3>
+                        <p class="font-sans text-xs text-slate-600">MySQL database terstruktur untuk menyimpan semua data</p>
                     </div>
                 </div>
-                <div class="flex gap-4 md:gap-6">
-                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">2</div>
+                <div class="flex gap-4 items-start">
+                    <div class="w-10 h-10 rounded-[12px] bg-[#ffdd44] border-2 border-slate-900 flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 font-bold">
+                        ✓
+                    </div>
                     <div>
-                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">Design & Database</h3>
-                        <p class="text-gray-600">Buat design UI/UX dan database schema sesuai requirement.</p>
+                        <h3 class="font-extrabold text-slate-900 text-base mb-1">Admin Panel & CRUD</h3>
+                        <p class="font-sans text-xs text-slate-600">Dashboard intuitif untuk mengelola data dan konten web</p>
                     </div>
                 </div>
-                <div class="flex gap-4 md:gap-6">
-                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">3</div>
+                <div class="flex gap-4 items-start">
+                    <div class="w-10 h-10 rounded-[12px] bg-[#ff7f9d] border-2 border-slate-900 flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 font-bold">
+                        ✓
+                    </div>
                     <div>
-                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">Development</h3>
-                        <p class="text-gray-600">Coding backend, frontend, dan integrasi database.</p>
+                        <h3 class="font-extrabold text-slate-900 text-base mb-1">Sistem Otentikasi</h3>
+                        <p class="font-sans text-xs text-slate-600">Login, register, dan role management yang aman</p>
                     </div>
                 </div>
-                <div class="flex gap-4 md:gap-6">
-                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-full gradient-primary flex items-center justify-center text-white text-lg md:text-xl font-bold flex-shrink-0">4</div>
+                <div class="flex gap-4 items-start">
+                    <div class="w-10 h-10 rounded-[12px] bg-[#f7a027] border-2 border-slate-900 flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 font-bold">
+                        ✓
+                    </div>
                     <div>
-                        <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">Testing & Delivery</h3>
-                        <p class="text-gray-600">Testing semua fitur, bug fixing, dan deployment.</p>
+                        <h3 class="font-extrabold text-slate-900 text-base mb-1">Clean Code & Responsive</h3>
+                        <p class="font-sans text-xs text-slate-600">Kode rapi ter-dokumentasi dan sempurna di semua gadget</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-[#ffdd44] border-[2.5px] border-slate-900 p-6 sm:p-8 rounded-[24px] shadow-[6px_6px_0px_0px_#1a1a1a]">
+            <h2 class="text-2xl font-extrabold text-slate-900 mb-8 text-center">Cara Kerja</h2>
+            <div class="grid sm:grid-cols-2 gap-6">
+                <div class="bg-white border-2 border-slate-900 p-4 rounded-xl shadow-[3px_3px_0px_0px_#1a1a1a] flex gap-4 items-start">
+                    <div class="w-8 h-8 rounded-lg bg-[#8be4d6] border-2 border-slate-900 flex items-center justify-center shrink-0 text-slate-900 font-black">1</div>
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 text-sm mb-1">Requirement Gathering</h3>
+                        <p class="font-sans text-xs text-slate-700">Diskusi detail fitur yang dibutuhkan, user flow, dan struktur database.</p>
+                    </div>
+                </div>
+                <div class="bg-white border-2 border-slate-900 p-4 rounded-xl shadow-[3px_3px_0px_0px_#1a1a1a] flex gap-4 items-start">
+                    <div class="w-8 h-8 rounded-lg bg-[#f7a027] border-2 border-slate-900 flex items-center justify-center shrink-0 text-slate-900 font-black">2</div>
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 text-sm mb-1">Design & Database Schema</h3>
+                        <p class="font-sans text-xs text-slate-700">Perancangan UI/UX serta skema database sesuai kebutuhan aplikasi.</p>
+                    </div>
+                </div>
+                <div class="bg-white border-2 border-slate-900 p-4 rounded-xl shadow-[3px_3px_0px_0px_#1a1a1a] flex gap-4 items-start">
+                    <div class="w-8 h-8 rounded-lg bg-[#ff7f9d] border-2 border-slate-900 flex items-center justify-center shrink-0 text-slate-900 font-black">3</div>
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 text-sm mb-1">Development</h3>
+                        <p class="font-sans text-xs text-slate-700">Coding backend, frontend, dan pengujian fitur interaktif.</p>
+                    </div>
+                </div>
+                <div class="bg-white border-2 border-slate-900 p-4 rounded-xl shadow-[3px_3px_0px_0px_#1a1a1a] flex gap-4 items-start">
+                    <div class="w-8 h-8 rounded-lg bg-[#c084fc] border-2 border-slate-900 flex items-center justify-center shrink-0 text-slate-900 font-black">4</div>
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 text-sm mb-1">Testing & Delivery</h3>
+                        <p class="font-sans text-xs text-slate-700">Pengujian akhir semua fitur, bug fixing, dan serah terima source code.</p>
                     </div>
                 </div>
             </div>
@@ -147,38 +130,23 @@
     </div>
 </section>
 
-<!-- Floating Bottom Bar -->
-<div class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-gray-200 shadow-2xl z-50">
-    <div class="container mx-auto px-4 py-5 md:px-6 md:py-4">
-        <div class="flex items-center justify-between gap-3 md:gap-6">
-            <!-- Left: Simple Back Link -->
-            <a href="{{ route('list-jasa') }}" class="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-all font-medium text-sm md:text-base">
-                <i class="fas fa-arrow-left"></i>
+<!-- Floating Bottom Bar Neo-brutalist -->
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-slate-900 shadow-[0px_-4px_10px_0px_rgba(0,0,0,0.1)] z-50">
+    <div class="max-w-5xl mx-auto px-4 py-3.5 sm:px-6">
+        <div class="flex items-center justify-between gap-3">
+            <a href="{{ route('list-jasa') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 border-2 border-slate-900 rounded-xl text-slate-900 font-bold text-xs sm:text-sm shadow-[2px_2px_0px_0px_#1a1a1a] transition-all">
+                <i class="fa-solid fa-arrow-left"></i>
                 <span>Kembali <span class="hidden sm:inline">ke List Harga</span></span>
             </a>
 
-            <!-- Right: Service Info + Order Button -->
-            <div class="flex items-center gap-3 md:gap-6">
-                <!-- Service Info (Desktop) -->
-                <div class="hidden md:flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-gray-700 flex-shrink-0">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-gray-900 text-base leading-tight">{{ $service->name }}</h3>
-                        <p class="text-lg font-extrabold text-gray-900 mt-0.5">Rp {{ number_format($service->price, 0, ',', '.') }}</p>
-                    </div>
+            <div class="flex items-center gap-4">
+                <div class="hidden sm:block text-right">
+                    <p class="font-extrabold text-slate-900 text-sm leading-tight">{{ $service->name }}</p>
+                    <p class="font-black text-slate-900 text-base">Rp {{ number_format($service->price, 0, ',', '.') }}</p>
                 </div>
 
-                <!-- Service Info (Mobile - Left of Button) -->
-                <div class="md:hidden flex-1">
-                    <div class="text-xs text-gray-600 font-medium text-right">{{ $service->name }}</div>
-                    <div class="text-sm font-bold text-gray-900 text-right">Rp {{ number_format($service->price, 0, ',', '.') }}</div>
-                </div>
-
-                <!-- Order Button -->
-                <button data-service-name="{{ $service->name }}" data-service-price="{{ $service->price }}" id="pay-button" class="flex items-center justify-center gap-2 px-4 py-2.5 md:px-8 md:py-3 gradient-primary text-white font-semibold rounded-xl hover:opacity-90 transition-all shadow-lg text-sm md:text-base cursor-pointer">
-                    <i class="fas fa-shopping-cart"></i>
+                <button data-service-name="{{ $service->name }}" data-service-price="{{ $service->price }}" id="pay-button" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 bg-[#8be4d6] hover:bg-[#78d6c7] text-slate-900 font-extrabold border-2 border-slate-900 rounded-xl shadow-[3px_3px_0px_0px_#1a1a1a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all text-xs sm:text-sm cursor-pointer">
+                    <i class="fa-solid fa-cart-shopping"></i>
                     <span>Order & Bayar</span>
                 </button>
             </div>
@@ -186,6 +154,5 @@
     </div>
 </div>
 
-<!-- Add padding to bottom of page for floating bar -->
-<div class="h-24 md:h-20"></div>
+<div class="h-20"></div>
 @endsection
