@@ -1,50 +1,50 @@
 <!-- Payment Modal CV -->
 <div id="paymentModalCV" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title-cv" role="dialog" aria-modal="true">
     <!-- Backdrop -->
-    <div id="paymentModalCVBackdrop" class="fixed inset-0 bg-black/20 transition-opacity duration-300 opacity-0"></div>
+    <div id="paymentModalCVBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
 
     <div class="fixed inset-0 z-10 overflow-y-auto overscroll-contain">
         <!-- Mobile: Full screen | Desktop: Centered -->
         <div class="flex min-h-full items-stretch sm:items-center justify-center sm:p-4">
             <!-- Modal Panel -->
-            <div id="paymentModalCVPanel" class="relative w-full h-[100dvh] sm:min-h-0 sm:h-auto sm:max-w-4xl sm:rounded-2xl bg-white text-left shadow-2xl transition-all duration-500 ease-out -translate-y-10 opacity-0 flex flex-col">
+            <div id="paymentModalCVPanel" class="relative w-full h-[100dvh] sm:min-h-0 sm:h-auto sm:max-w-4xl sm:rounded-[24px] bg-white border-[3px] border-slate-900 text-left shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out -translate-y-10 opacity-0 flex flex-col overflow-hidden">
 
                 <!-- Header with Close Button -->
-                <div class="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 bg-white shrink-0">
+                <div class="flex items-center justify-between p-5 sm:p-6 border-b-[2.5px] border-slate-900 bg-[#faf8ef] shrink-0">
                     <div class="flex items-center gap-3">
-                        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-100">
-                            <i class="fas fa-file-alt text-blue-600"></i>
+                        <div class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#8be4d6] border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 font-extrabold">
+                            <i class="fa-solid fa-file-lines text-base"></i>
                         </div>
                         <div>
-                            <span class="text-lg font-semibold text-gray-900" id="modal-title-cv">Form Pembuatan CV</span>
-                            <p class="text-sm text-gray-500 hidden sm:block">Lengkapi data berikut untuk pembuatan CV profesional.</p>
+                            <span class="text-xl font-extrabold text-slate-900" id="modal-title-cv">Form Pembuatan CV</span>
+                            <p class="text-xs font-semibold text-slate-600 hidden sm:block">Lengkapi data berikut untuk pembuatan CV profesional.</p>
                         </div>
                     </div>
-                    <button type="button" onclick="closePaymentModalCV()" class="text-gray-400 hover:text-gray-500 p-2 cursor-pointer">
-                        <i class="fas fa-times text-xl"></i>
+                    <button type="button" onclick="closePaymentModalCV()" class="w-9 h-9 rounded-xl bg-white border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 hover:bg-slate-100 flex items-center justify-center font-black cursor-pointer transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none">
+                        <i class="fa-solid fa-xmark text-lg"></i>
                     </button>
                 </div>
 
                 <!-- Step Indicator -->
-                <div class="px-4 sm:px-6 py-3 bg-gray-50 border-b border-gray-100">
+                <div class="px-5 sm:px-6 py-3.5 bg-[#faf8ef] border-b-[2.5px] border-slate-900">
                     <div class="flex items-center justify-center gap-4 sm:gap-8">
                         <!-- Step 1 - Active -->
                         <div class="flex items-center gap-2">
-                            <div class="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-[#2b3a4b] text-white text-[10px] sm:text-xs font-semibold">
+                            <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-[#ffdd44] border-2 border-slate-900 text-slate-900 text-xs font-black shadow-[1.5px_1.5px_0px_0px_#1a1a1a]">
                                 1
                             </div>
-                            <span class="text-xs sm:text-sm font-medium text-[#2b3a4b]">Lengkapi Data</span>
+                            <span class="text-xs sm:text-sm font-extrabold text-slate-900">Lengkapi Data</span>
                         </div>
 
                         <!-- Connector Line -->
-                        <div class="w-8 sm:w-16 h-0.5 bg-gray-300"></div>
+                        <div class="w-8 sm:w-16 h-[2.5px] bg-slate-900"></div>
 
                         <!-- Step 2 - Inactive -->
                         <div class="flex items-center gap-2">
-                            <div class="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-gray-300 text-gray-500 text-[10px] sm:text-xs font-semibold">
+                            <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-slate-200 border-2 border-slate-900 text-slate-500 text-xs font-bold">
                                 2
                             </div>
-                            <span class="text-xs sm:text-sm font-medium text-gray-400">Metode Pembayaran</span>
+                            <span class="text-xs sm:text-sm font-bold text-slate-500">Metode Pembayaran</span>
                         </div>
                     </div>
                 </div>

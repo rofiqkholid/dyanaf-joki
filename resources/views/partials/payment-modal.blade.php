@@ -1,94 +1,97 @@
 <!-- Payment Modal -->
 <div id="paymentModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <!-- Backdrop -->
-    <div id="paymentModalBackdrop" class="fixed inset-0 bg-black/20 transition-opacity duration-300 opacity-0"></div>
+    <div id="paymentModalBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
 
     <div class="fixed inset-0 z-10 overflow-y-auto overscroll-contain">
         <!-- Mobile: Full screen | Desktop: Centered horizontal rectangle -->
         <div class="flex min-h-full items-stretch sm:items-center justify-center sm:p-4">
             <!-- Modal Panel -->
-            <div id="paymentModalPanel" class="relative w-full h-[100dvh] sm:min-h-0 sm:h-auto sm:max-w-5xl sm:rounded-2xl bg-white text-left shadow-2xl transition-all duration-500 ease-out -translate-y-10 opacity-0 flex flex-col">
+            <div id="paymentModalPanel" class="relative w-full h-[100dvh] sm:min-h-0 sm:h-auto sm:max-w-xl sm:rounded-[24px] bg-white border-[3px] border-slate-900 text-left shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out -translate-y-10 opacity-0 flex flex-col overflow-hidden">
 
                 <!-- Header with Close Button -->
-                <div class="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 bg-white shrink-0">
+                <div class="flex items-center justify-between p-5 sm:p-6 border-b-[2.5px] border-slate-900 bg-[#faf8ef] shrink-0">
                     <div class="flex items-center gap-3">
-                        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-100">
-                            <i class="fas fa-credit-card text-blue-600"></i>
+                        <div class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#8be4d6] border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 font-extrabold">
+                            <i class="fa-solid fa-credit-card text-base"></i>
                         </div>
                         <div>
-                            <span class="text-lg font-semibold text-gray-900" id="modal-title">Lengkapi Data</span>
-                            <p class="text-sm text-gray-500 hidden sm:block">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
+                            <span class="text-xl font-extrabold text-slate-900" id="modal-title">Lengkapi Data</span>
+                            <p class="text-xs font-semibold text-slate-600 hidden sm:block">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
                         </div>
                     </div>
-                    <button type="button" onclick="closePaymentModal()" class="text-gray-400 hover:text-gray-500 p-2 cursor-pointer">
-                        <i class="fas fa-times text-xl"></i>
+                    <button type="button" onclick="closePaymentModal()" class="w-9 h-9 rounded-xl bg-white border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 hover:bg-slate-100 flex items-center justify-center font-black cursor-pointer transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none">
+                        <i class="fa-solid fa-xmark text-lg"></i>
                     </button>
                 </div>
 
                 <!-- Step Indicator -->
-                <div class="px-4 sm:px-6 py-3 bg-gray-50 border-b border-gray-100">
+                <div class="px-5 sm:px-6 py-3.5 bg-[#faf8ef] border-b-[2.5px] border-slate-900">
                     <div class="flex items-center justify-center gap-4 sm:gap-8">
                         <!-- Step 1 - Active -->
                         <div class="flex items-center gap-2">
-                            <div class="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-[#2b3a4b] text-white text-[10px] sm:text-xs font-semibold">
+                            <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-[#ffdd44] border-2 border-slate-900 text-slate-900 text-xs font-black shadow-[1.5px_1.5px_0px_0px_#1a1a1a]">
                                 1
                             </div>
-                            <span class="text-xs sm:text-sm font-medium text-[#2b3a4b]">Lengkapi Data</span>
+                            <span class="text-xs sm:text-sm font-extrabold text-slate-900">Lengkapi Data</span>
                         </div>
 
                         <!-- Connector Line -->
-                        <div class="w-8 sm:w-16 h-0.5 bg-gray-300"></div>
+                        <div class="w-8 sm:w-16 h-[2.5px] bg-slate-900"></div>
 
                         <!-- Step 2 - Inactive -->
                         <div class="flex items-center gap-2">
-                            <div class="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-gray-300 text-gray-500 text-[10px] sm:text-xs font-semibold">
+                            <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-slate-200 border-2 border-slate-900 text-slate-500 text-xs font-bold">
                                 2
                             </div>
-                            <span class="text-xs sm:text-sm font-medium text-gray-400">Metode Pembayaran</span>
+                            <span class="text-xs sm:text-sm font-bold text-slate-500">Metode Pembayaran</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Form Content -->
-                <div id="payment-form-content" class="flex-1 p-4 sm:p-6 overflow-y-auto overscroll-contain">
-                    <p class="text-sm text-gray-500 sm:hidden mb-4">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
+                <div id="payment-form-content" class="flex-1 p-5 sm:p-6 overflow-y-auto overscroll-contain bg-white">
+                    <p class="text-xs font-semibold text-slate-600 sm:hidden mb-4">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-4">
                         <!-- Hidden: Layanan & Total Pembayaran -->
                         <div class="hidden">
-                            <label class="block text-sm font-medium text-gray-700">Layanan</label>
-                            <div id="payment-service-name" class="mt-1 block w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2.5 text-sm text-gray-900"></div>
+                            <label class="block text-xs sm:text-sm font-extrabold text-slate-900">Layanan</label>
+                            <div id="payment-service-name" class="mt-1 block w-full rounded-xl border-2 border-slate-900 bg-slate-50 px-4 py-3 text-sm font-bold text-slate-900"></div>
                         </div>
                         <div class="hidden">
-                            <label class="block text-sm font-medium text-gray-700">Total Pembayaran</label>
-                            <div id="payment-price-display" class="mt-1 block w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2.5 text-sm font-bold text-gray-900"></div>
+                            <label class="block text-xs sm:text-sm font-extrabold text-slate-900">Total Pembayaran</label>
+                            <div id="payment-price-display" class="mt-1 block w-full rounded-xl border-2 border-slate-900 bg-slate-50 px-4 py-3 text-sm font-extrabold text-slate-900"></div>
                         </div>
                         <div>
-                            <label for="customer-name" class="block text-sm font-medium text-gray-700">Nama Lengkap <span class="text-red-500">*</span></label>
-                            <input type="text" id="customer-name" class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-0 focus:outline-none" placeholder="Masukkan nama anda">
-                            <p class="mt-1 text-xs text-red-500 hidden" id="name-error">Nama wajib diisi</p>
+                            <label for="customer-name" class="block text-xs sm:text-sm font-extrabold text-slate-900 mb-1.5">Nama Lengkap <span class="text-red-500">*</span></label>
+                            <input type="text" id="customer-name" class="block w-full rounded-xl border-2 border-slate-900 px-4 py-3 text-sm font-bold text-slate-900 bg-white shadow-[3px_3px_0px_0px_#1a1a1a] focus:ring-0 focus:outline-none placeholder:text-slate-400 font-sans" placeholder="Masukkan nama anda">
+                            <p class="mt-1.5 text-xs font-extrabold text-red-500 hidden" id="name-error">Nama wajib diisi</p>
                         </div>
                         <div>
-                            <label for="customer-phone" class="block text-sm font-medium text-gray-700">Nomor yang bisa dihubungi: WhatsApp, dll. <span class="text-red-500">*</span></label>
-                            <input type="tel" id="customer-phone" class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-0 focus:outline-none" placeholder="08xxxxxxxxxx">
-                            <p class="mt-1 text-xs text-red-500 hidden" id="phone-error">Nomor WhatsApp wajib diisi</p>
+                            <label for="customer-phone" class="block text-xs sm:text-sm font-extrabold text-slate-900 mb-1.5">Nomor yang bisa dihubungi: WhatsApp, dll. <span class="text-red-500">*</span></label>
+                            <input type="tel" id="customer-phone" class="block w-full rounded-xl border-2 border-slate-900 px-4 py-3 text-sm font-bold text-slate-900 bg-white shadow-[3px_3px_0px_0px_#1a1a1a] focus:ring-0 focus:outline-none placeholder:text-slate-400 font-sans" placeholder="08xxxxxxxxxx">
+                            <p class="mt-1.5 text-xs font-extrabold text-red-500 hidden" id="phone-error">Nomor WhatsApp wajib diisi</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Loading Overlay -->
-                <div id="payment-loading-overlay" class="hidden flex-1 flex flex-col items-center justify-center p-8">
-                    <div class="animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-[#2b3a4b] mb-4"></div>
-                    <p class="text-sm font-medium text-gray-600">Memproses...</p>
-                    <p class="text-xs text-gray-400 mt-1">Mohon tunggu sebentar</p>
+                <div id="payment-loading-overlay" class="hidden flex-1 flex flex-col items-center justify-center p-8 bg-white">
+                    <div class="w-12 h-12 rounded-xl bg-[#ffdd44] border-2 border-slate-900 flex items-center justify-center text-slate-900 font-black shadow-[3px_3px_0px_0px_#1a1a1a] animate-spin mb-4">
+                        <i class="fa-solid fa-spinner text-xl"></i>
+                    </div>
+                    <p class="text-base font-extrabold text-slate-900">Memproses Data...</p>
+                    <p class="text-xs font-semibold text-slate-600 mt-1">Mohon tunggu sebentar</p>
                 </div>
 
                 <!-- Footer with Buttons -->
-                <div class="flex flex-row-reverse gap-3 p-4 sm:p-6 border-t border-gray-100 bg-gray-50 shrink-0">
-                    <button type="button" onclick="processPayment()" id="btn-process-payment" class="flex-1 sm:flex-none inline-flex justify-center items-center rounded-lg gradient-primary px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 cursor-pointer">
-                        Bayar
+                <div class="flex flex-row-reverse gap-3 p-5 sm:p-6 border-t-[2.5px] border-slate-900 bg-[#faf8ef] shrink-0">
+                    <button type="button" onclick="processPayment()" id="btn-process-payment" class="flex-1 sm:flex-none inline-flex justify-center items-center gap-2 rounded-xl bg-[#8be4d6] hover:bg-[#78d6c7] border-2 border-slate-900 px-7 py-3 text-sm font-extrabold text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer">
+                        <span>Bayar</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
-                    <button type="button" onclick="closePaymentModal()" class="flex-1 sm:flex-none inline-flex justify-center items-center rounded-lg bg-white px-6 py-2.5 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer">
+                    <button type="button" onclick="closePaymentModal()" class="flex-1 sm:flex-none inline-flex justify-center items-center rounded-xl bg-white hover:bg-slate-100 border-2 border-slate-900 px-6 py-3 text-sm font-extrabold text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer">
                         Batal
                     </button>
                 </div>
@@ -106,7 +109,6 @@
     function showPageLoader() {
         const loader = document.getElementById('pageLoader');
         if (loader) {
-            // Remove hidden class and ensure visibility
             loader.classList.remove('hidden');
             loader.style.display = 'flex';
             loader.style.opacity = '1';
@@ -209,17 +211,17 @@
         // Hide form content and footer, show loading overlay
         const formContent = document.getElementById('payment-form-content');
         const loadingOverlay = document.getElementById('payment-loading-overlay');
-        const footer = document.querySelector('#paymentModal .bg-gray-50.shrink-0');
+        const footer = document.querySelector('#paymentModal .bg-\\[\\#faf8ef\\].shrink-0:last-child');
 
         formContent.classList.add('hidden');
-        footer.classList.add('hidden');
+        if (footer) footer.classList.add('hidden');
         loadingOverlay.classList.remove('hidden');
 
         // Wait 1.5 seconds then show payment modal
         setTimeout(() => {
             // Reset - show form and footer, hide loading
             formContent.classList.remove('hidden');
-            footer.classList.remove('hidden');
+            if (footer) footer.classList.remove('hidden');
             loadingOverlay.classList.add('hidden');
 
             // Close current modal and show custom payment UI

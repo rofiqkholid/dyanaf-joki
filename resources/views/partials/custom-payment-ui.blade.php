@@ -5,62 +5,62 @@
 
     <div class="fixed inset-0 z-10 flex items-center justify-center p-0 sm:p-4">
         <!-- Modal Panel - Full screen mobile, centered desktop -->
-        <div id="customPaymentPanel" class="relative w-full h-full sm:h-auto sm:max-h-[90vh] sm:max-w-4xl bg-white sm:border sm:border-gray-200 shadow-lg transition-all duration-500 ease-out scale-95 opacity-0 flex flex-col overflow-hidden">
+        <div id="customPaymentPanel" class="relative w-full h-full sm:h-auto sm:max-h-[90vh] sm:max-w-4xl bg-white border-[3px] border-slate-900 rounded-[24px] shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-500 ease-out scale-95 opacity-0 flex flex-col overflow-hidden">
 
             <!-- Header - Minimal -->
-            <div class="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100 bg-white">
+            <div class="flex items-center justify-between p-4 sm:p-6 border-b-[2.5px] border-slate-900 bg-[#faf8ef]">
                 <div class="flex items-center gap-3">
-                    <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-100">
-                        <i class="fas fa-credit-card text-blue-600"></i>
+                    <div class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#8be4d6] border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 font-extrabold">
+                        <i class="fa-solid fa-credit-card text-base"></i>
                     </div>
                     <div>
-                        <span class="text-lg font-semibold text-gray-900" id="custom-payment-title">Metode Pembayaran</span>
-                        <p class="text-sm text-gray-500 hidden sm:block">Pilih metode pembayaran favorit Anda.</p>
+                        <span class="text-xl font-extrabold text-slate-900" id="custom-payment-title">Metode Pembayaran</span>
+                        <p class="text-xs font-semibold text-slate-600 hidden sm:block">Pilih metode pembayaran favorit Anda.</p>
                     </div>
                 </div>
-                <button type="button" onclick="closeCustomPaymentModal()" class="text-gray-400 hover:text-gray-500 p-2 cursor-pointer">
-                    <i class="fas fa-times text-xl"></i>
+                <button type="button" onclick="closeCustomPaymentModal()" class="w-9 h-9 rounded-xl bg-white border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 hover:bg-slate-100 flex items-center justify-center font-black cursor-pointer transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none">
+                    <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
 
             <!-- Step Indicator -->
-            <div class="px-6 py-3 bg-white border-b border-gray-200">
+            <div class="px-6 py-3.5 bg-[#faf8ef] border-b-[2.5px] border-slate-900">
                 <div class="flex items-center justify-center gap-4 sm:gap-8">
                     <!-- Step 1 - Completed -->
                     <div class="flex items-center gap-2">
-                        <div class="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-green-500 text-white text-[10px] sm:text-xs">
-                            <i class="fas fa-check text-xs"></i>
+                        <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-[#8be4d6] border-2 border-slate-900 text-slate-900 text-xs font-black shadow-[1.5px_1.5px_0px_0px_#1a1a1a]">
+                            <i class="fa-solid fa-check text-xs"></i>
                         </div>
-                        <span class="text-xs sm:text-sm font-medium text-gray-400">Lengkapi Data</span>
+                        <span class="text-xs sm:text-sm font-bold text-slate-500">Lengkapi Data</span>
                     </div>
 
                     <!-- Connector Line -->
-                    <div class="w-8 sm:w-16 h-0.5 bg-[#2b3a4b]"></div>
+                    <div class="w-8 sm:w-16 h-[2.5px] bg-slate-900"></div>
 
                     <!-- Step 2 - Active -->
                     <div class="flex items-center gap-2">
-                        <div class="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-[#2b3a4b] text-white text-[10px] sm:text-xs font-semibold">
+                        <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-[#ffdd44] border-2 border-slate-900 text-slate-900 text-xs font-black shadow-[1.5px_1.5px_0px_0px_#1a1a1a]">
                             2
                         </div>
-                        <span class="text-xs sm:text-sm font-medium text-[#2b3a4b]">Metode Pembayaran</span>
+                        <span class="text-xs sm:text-sm font-extrabold text-slate-900">Metode Pembayaran</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Order Summary - Minimal -->
-            <div class="px-4 py-3 sm:px-6 sm:py-4 bg-gray-50 border-b border-gray-200">
+            <!-- Order Summary - Neo brutalist yellow -->
+            <div class="px-4 py-3 sm:px-6 sm:py-4 bg-[#ffdd44] border-b-[2.5px] border-slate-900 text-slate-900">
                 <div class="grid grid-cols-2 gap-2 sm:gap-4">
                     <div>
-                        <p class="text-[10px] sm:text-xs text-gray-500 mb-0.5 sm:mb-1">Layanan</p>
-                        <p class="text-sm sm:text-base font-semibold text-[#2b3a4b]" id="custom-service-name"></p>
+                        <p class="text-[10px] sm:text-xs font-bold text-slate-800 mb-0.5 sm:mb-1">Layanan</p>
+                        <p class="text-sm sm:text-base font-black text-slate-900" id="custom-service-name"></p>
                     </div>
                     <div class="text-right">
-                        <p class="text-[10px] sm:text-xs text-gray-500 mb-0.5 sm:mb-1">Total Pembayaran</p>
-                        <p class="text-base sm:text-xl font-bold text-[#2b3a4b]" id="custom-price-display"></p>
+                        <p class="text-[10px] sm:text-xs font-bold text-slate-800 mb-0.5 sm:mb-1">Total Pembayaran</p>
+                        <p class="text-base sm:text-xl font-black text-slate-900" id="custom-price-display"></p>
                     </div>
                 </div>
-                <div class="mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm text-gray-600">
-                    <i class="fas fa-user text-[#2b3a4b] text-xs"></i>
+                <div class="mt-2 sm:mt-3 flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900">
+                    <i class="fa-solid fa-user text-slate-900 text-xs"></i>
                     <span id="custom-customer-name"></span>
                 </div>
             </div>
