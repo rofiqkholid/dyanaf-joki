@@ -5,7 +5,7 @@
 
     <div class="fixed inset-0 z-10 flex items-center justify-center p-0 sm:p-4">
         <!-- Modal Panel -->
-        <div id="gopayPanel" class="relative w-full h-full sm:h-auto sm:max-h-[90vh] sm:max-w-2xl bg-[#faf8ef] sm:rounded-[24px] border-[3px] border-slate-900 shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out scale-95 opacity-0 flex flex-col overflow-hidden">
+        <div id="gopayPanel" class="relative w-full h-full sm:h-auto sm:max-h-[90vh] sm:max-w-2xl bg-[#faf8ef] rounded-none sm:rounded-[24px] border-0 sm:border-[3px] border-slate-900 shadow-none sm:shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out scale-95 opacity-0 flex flex-col overflow-hidden">
 
             <!-- Header -->
             <div class="flex items-center justify-between px-5 sm:px-6 py-4 bg-[#ffdd44] text-slate-900 border-b-[2.5px] border-slate-900 shrink-0">

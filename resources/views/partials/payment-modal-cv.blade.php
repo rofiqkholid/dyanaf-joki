@@ -3,11 +3,9 @@
     <!-- Backdrop -->
     <div id="paymentModalCVBackdrop" class="fixed inset-0 bg-black/50 transition-opacity duration-300 opacity-0"></div>
 
-    <div class="fixed inset-0 z-10 overflow-y-auto overscroll-contain">
-        <!-- Mobile: Full screen | Desktop: Centered -->
-        <div class="flex min-h-full items-stretch sm:items-center justify-center sm:p-4">
-            <!-- Modal Panel -->
-            <div id="paymentModalCVPanel" class="relative w-full h-[100dvh] sm:min-h-0 sm:h-auto sm:max-w-4xl sm:rounded-[24px] bg-white border-[3px] border-slate-900 text-left shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out -translate-y-10 opacity-0 flex flex-col overflow-hidden">
+    <div class="fixed inset-0 z-10 flex items-center justify-center p-0 sm:p-4">
+        <!-- Modal Panel -->
+        <div id="paymentModalCVPanel" class="relative w-full h-full sm:h-auto sm:max-h-[90vh] sm:max-w-4xl sm:rounded-[24px] bg-white border-[3px] border-slate-900 text-left shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out -translate-y-10 opacity-0 flex flex-col overflow-hidden">
 
                 <!-- Header with Close Button -->
                 <div class="flex items-center justify-between p-5 sm:p-6 border-b-[2.5px] border-slate-900 bg-[#faf8ef] shrink-0">
@@ -236,7 +234,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
 <script>
