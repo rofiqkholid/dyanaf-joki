@@ -261,15 +261,8 @@
 
         modal.classList.remove('hidden');
 
-        // Lock body scroll - STRONG lock
-        customScrollPosition = window.pageYOffset;
-        document.documentElement.style.overflow = 'hidden';
+        // Lock body scroll safely
         document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${customScrollPosition}px`;
-        document.body.style.left = '0';
-        document.body.style.right = '0';
-        document.body.style.width = '100%';
 
         setTimeout(() => {
             backdrop.classList.remove('opacity-0');
@@ -381,15 +374,13 @@
         setTimeout(() => {
             modal.classList.add('hidden');
 
-            // Unlock body scroll - FULL unlock
+            // Unlock body scroll cleanly
             document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
-            document.body.style.position = '';
             document.body.style.top = '';
             document.body.style.left = '';
             document.body.style.right = '';
             document.body.style.width = '';
-            window.scrollTo(0, customScrollPosition);
 
             // Reset orderId after closing
             customPaymentData.orderId = null;

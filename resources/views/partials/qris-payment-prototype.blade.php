@@ -1,89 +1,91 @@
 <!-- QRIS Custom Payment UI (Core API Prototype) -->
 <div id="qrisPaymentModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="qris-payment-title" role="dialog" aria-modal="true">
     <!-- Backdrop -->
-    <div id="qrisBackdrop" class="fixed inset-0 bg-black/60 transition-opacity duration-300 opacity-0"></div>
+    <div id="qrisBackdrop" class="fixed inset-0 bg-black/50 transition-opacity duration-300 opacity-0"></div>
 
     <div class="fixed inset-0 z-10 flex items-center justify-center p-0 sm:p-4">
         <!-- Modal Panel -->
-        <div id="qrisPanel" class="relative w-full h-full sm:h-auto sm:max-h-[90vh] sm:max-w-2xl bg-white sm:border sm:border-gray-200 shadow-lg transition-all duration-500 ease-out scale-95 opacity-0 flex flex-col overflow-hidden">
+        <div id="qrisPanel" class="relative w-full h-full sm:h-auto sm:max-h-[90vh] sm:max-w-2xl bg-[#faf8ef] sm:rounded-[24px] border-[3px] border-slate-900 shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out scale-95 opacity-0 flex flex-col overflow-hidden">
 
             <!-- Header -->
-            <div class="flex items-center justify-between px-6 py-4 bg-[#2b3a4b] text-white border-b border-gray-200 shrink-0">
+            <div class="flex items-center justify-between px-5 sm:px-6 py-4 bg-[#ffdd44] text-slate-900 border-b-[2.5px] border-slate-900 shrink-0">
                 <div class="flex items-center gap-3">
-                    <i class="fas fa-qrcode text-lg"></i>
-                    <span class="text-lg font-semibold" id="qris-payment-title">Pembayaran QRIS</span>
+                    <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#8be4d6] border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 font-extrabold">
+                        <i class="fas fa-qrcode text-base"></i>
+                    </div>
+                    <span class="text-lg font-extrabold text-slate-900" id="qris-payment-title">Pembayaran QRIS</span>
                 </div>
-                <button type="button" onclick="closeQrisModal()" class="text-white/80 hover:text-white p-1 transition-colors cursor-pointer">
-                    <i class="fas fa-times text-xl"></i>
+                <button type="button" onclick="closeQrisModal()" class="w-9 h-9 rounded-xl bg-white border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 hover:bg-slate-100 flex items-center justify-center font-black cursor-pointer transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none">
+                    <i class="fas fa-times text-lg"></i>
                 </button>
             </div>
 
             <!-- Order Summary -->
-            <div class="px-6 py-4 bg-gray-50 border-b border-gray-200 shrink-0">
+            <div class="px-6 py-4 bg-[#faf8ef] border-b-[2.5px] border-slate-900 shrink-0">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <p class="text-xs text-gray-500 mb-1">Layanan</p>
-                        <p class="text-base font-semibold text-[#2b3a4b]" id="qris-service-name"></p>
+                        <p class="text-xs font-bold text-slate-600 mb-1">Layanan</p>
+                        <p class="text-base font-extrabold text-slate-900" id="qris-service-name"></p>
                     </div>
                     <div class="text-right">
-                        <p class="text-xs text-gray-500 mb-1">Total Pembayaran</p>
-                        <p class="text-xl font-bold text-[#2b3a4b]" id="qris-price-display"></p>
+                        <p class="text-xs font-bold text-slate-600 mb-1">Total Pembayaran</p>
+                        <p class="text-xl font-black text-slate-900" id="qris-price-display"></p>
                     </div>
                 </div>
-                <div class="mt-3 flex items-center gap-2 text-sm text-gray-600">
-                    <i class="fas fa-user text-[#2b3a4b]"></i>
+                <div class="mt-3 flex items-center gap-2 text-sm font-bold text-slate-700">
+                    <i class="fas fa-user text-slate-900"></i>
                     <span id="qris-customer-name"></span>
                 </div>
             </div>
 
             <!-- Content -->
-            <div class="flex-1 px-6 py-4 overflow-y-auto">
+            <div class="flex-1 px-6 py-4 overflow-y-auto bg-[#faf8ef]">
 
                 <!-- Loading State -->
                 <div id="qris-loading" class="text-center py-8">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-[#2b3a4b] rounded-full mb-4 animate-pulse">
-                        <i class="fas fa-spinner fa-spin text-white text-2xl"></i>
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-[#ffdd44] rounded-2xl border-2 border-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] mb-4 animate-pulse">
+                        <i class="fas fa-spinner fa-spin text-slate-900 text-2xl"></i>
                     </div>
-                    <p class="text-[#2b3a4b] font-medium">Membuat QR Code...</p>
-                    <p class="text-gray-400 text-sm mt-2">Mohon tunggu sebentar</p>
+                    <p class="text-slate-900 font-extrabold">Membuat QR Code...</p>
+                    <p class="text-slate-600 text-sm mt-1 font-bold">Mohon tunggu sebentar</p>
                 </div>
 
                 <!-- QR Code Display -->
                 <div id="qris-content" class="hidden">
-                    <div class="bg-white border border-gray-200 p-6 text-center">
+                    <div class="bg-white border-2 border-slate-900 rounded-2xl shadow-[4px_4px_0px_0px_#1a1a1a] p-6 text-center">
                         <!-- Countdown Timer -->
-                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4">
-                            <p class="text-xs text-gray-500 mb-2 text-center">QR Code berlaku dalam</p>
+                        <div class="bg-[#faf8ef] border-2 border-slate-900 rounded-xl p-4 mb-4">
+                            <p class="text-xs font-bold text-slate-600 mb-2 text-center">QR Code berlaku dalam</p>
                             <div class="flex items-center justify-center gap-2">
-                                <i class="fas fa-clock text-lg text-[#2b3a4b]"></i>
-                                <p id="qris-countdown" class="text-2xl font-bold font-mono text-[#2b3a4b]">15:00</p>
+                                <i class="fas fa-clock text-lg text-slate-900"></i>
+                                <p id="qris-countdown" class="text-2xl font-black font-mono text-slate-900">15:00</p>
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <p class="text-lg font-bold text-[#2b3a4b] mb-2">Scan QR Code</p>
-                            <p class="text-sm text-gray-600">Gunakan aplikasi e-wallet (GoPay, OVO, Dana, ShopeePay, dll)</p>
+                            <p class="text-lg font-black text-slate-900 mb-1">Scan QR Code</p>
+                            <p class="text-sm font-bold text-slate-600">Gunakan aplikasi e-wallet (GoPay, OVO, Dana, ShopeePay, dll)</p>
                         </div>
 
                         <div class="flex justify-center mb-4">
-                            <div class="p-4 bg-white border border-gray-200 inline-block">
+                            <div class="p-4 bg-white border-2 border-slate-900 rounded-xl shadow-[3px_3px_0px_0px_#1a1a1a] inline-block">
                                 <img id="qris-qr-image" src="" alt="QRIS Code" class="w-64 h-64">
                             </div>
                         </div>
 
                         <!-- Download QRIS Button -->
                         <div class="mb-4">
-                            <button type="button" onclick="downloadQrisImage()" class="inline-flex items-center gap-2 px-6 py-3 bg-[#2b3a4b] text-white rounded-lg hover:bg-[#1e2a36] transition-all cursor-pointer">
+                            <button type="button" onclick="downloadQrisImage()" class="neo-btn neo-btn-cyan gap-2 px-6 py-3 text-sm">
                                 <i class="fas fa-download"></i>
-                                <span class="font-medium">Download QR Code</span>
+                                <span>Download QR Code</span>
                             </button>
                         </div>
 
-                        <div class="bg-gray-50 border border-gray-200 p-4">
-                            <p class="text-sm text-gray-600 mb-2">Status Pembayaran:</p>
+                        <div class="bg-[#faf8ef] border-2 border-slate-900 rounded-xl p-4">
+                            <p class="text-sm font-bold text-slate-600 mb-1">Status Pembayaran:</p>
                             <div id="payment-status" class="flex items-center justify-center gap-2">
-                                <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
-                                <span class="text-sm font-medium text-[#2b3a4b]">Menunggu Pembayaran...</span>
+                                <div class="w-3 h-3 bg-amber-400 border border-slate-900 rounded-full animate-pulse"></div>
+                                <span class="text-sm font-extrabold text-slate-900">Menunggu Pembayaran...</span>
                             </div>
                         </div>
                     </div>
@@ -91,18 +93,18 @@
 
                 <!-- Error State -->
                 <div id="qris-error" class="hidden text-center py-8">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
-                        <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-[#ff6b6b] border-2 border-slate-900 rounded-2xl shadow-[3px_3px_0px_0px_#1a1a1a] mb-4">
+                        <i class="fas fa-exclamation-triangle text-slate-900 text-2xl"></i>
                     </div>
-                    <p class="text-[#2b3a4b] font-medium mb-2">Gagal Membuat QR Code</p>
-                    <p id="qris-error-message" class="text-gray-600 text-sm"></p>
+                    <p class="text-slate-900 font-black text-lg mb-1">Gagal Membuat QR Code</p>
+                    <p id="qris-error-message" class="text-slate-700 font-bold text-sm"></p>
                 </div>
             </div>
 
             <!-- Footer -->
-            <div class="px-6 py-4 border-t border-gray-200 bg-gray-50 shrink-0">
-                <button type="button" onclick="closeQrisModal()" class="w-full h-12 flex items-center justify-center rounded-lg bg-[#2b3a4b] text-white hover:bg-[#1e2a36] transition-all cursor-pointer shadow-sm">
-                    <span class="font-semibold text-sm">Tutup</span>
+            <div class="px-6 py-4 border-t-[2.5px] border-slate-900 bg-[#faf8ef] shrink-0">
+                <button type="button" onclick="closeQrisModal()" class="neo-btn neo-btn-soft-purple w-full py-3 text-sm">
+                    Tutup
                 </button>
             </div>
         </div>
@@ -143,12 +145,8 @@
 
         modal.classList.remove('hidden');
 
-        // Lock scroll
-        qrisScrollPosition = window.pageYOffset;
+        // Lock scroll safely
         document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${qrisScrollPosition}px`;
-        document.body.style.width = '100%';
 
         setTimeout(() => {
             backdrop.classList.remove('opacity-0');
@@ -333,12 +331,8 @@ Mohon segera diproses. Terima kasih!`;
         setTimeout(() => {
             modal.classList.add('hidden');
 
-            // Unlock scroll
+            // Unlock scroll cleanly
             document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            window.scrollTo(0, qrisScrollPosition);
 
             // Stop countdown
             stopCountdown();

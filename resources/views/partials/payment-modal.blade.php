@@ -1,23 +1,23 @@
 <!-- Payment Modal -->
 <div id="paymentModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <!-- Backdrop -->
-    <div id="paymentModalBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
+    <div id="paymentModalBackdrop" class="fixed inset-0 bg-black/50 transition-opacity duration-300 opacity-0"></div>
 
     <div class="fixed inset-0 z-10 overflow-y-auto overscroll-contain">
         <!-- Mobile: Full screen | Desktop: Centered horizontal rectangle -->
         <div class="flex min-h-full items-stretch sm:items-center justify-center sm:p-4">
             <!-- Modal Panel -->
-            <div id="paymentModalPanel" class="relative w-full h-[100dvh] sm:min-h-0 sm:h-auto sm:max-w-xl sm:rounded-[24px] bg-white border-[3px] border-slate-900 text-left shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out -translate-y-10 opacity-0 flex flex-col overflow-hidden">
+            <div id="paymentModalPanel" class="relative w-full h-[100dvh] sm:min-h-0 sm:h-auto sm:max-w-xl sm:rounded-[24px] bg-[#faf8ef] border-[3px] border-slate-900 text-left shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out -translate-y-10 opacity-0 flex flex-col overflow-hidden">
 
-                <!-- Header with Close Button -->
-                <div class="flex items-center justify-between p-5 sm:p-6 border-b-[2.5px] border-slate-900 bg-[#faf8ef] shrink-0">
+                <!-- Header Kuning Warm Neo-brutalist -->
+                <div class="flex items-center justify-between p-5 sm:p-6 border-b-[2.5px] border-slate-900 bg-[#ffdd44] shrink-0">
                     <div class="flex items-center gap-3">
                         <div class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#8be4d6] border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 font-extrabold">
                             <i class="fa-solid fa-credit-card text-base"></i>
                         </div>
                         <div>
                             <span class="text-xl font-extrabold text-slate-900" id="modal-title">Lengkapi Data</span>
-                            <p class="text-xs font-semibold text-slate-600 hidden sm:block">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
+                            <p class="text-xs font-bold text-slate-800 hidden sm:block">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
                         </div>
                     </div>
                     <button type="button" onclick="closePaymentModal()" class="w-9 h-9 rounded-xl bg-white border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 hover:bg-slate-100 flex items-center justify-center font-black cursor-pointer transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none">
@@ -30,7 +30,7 @@
                     <div class="flex items-center justify-center gap-4 sm:gap-8">
                         <!-- Step 1 - Active -->
                         <div class="flex items-center gap-2">
-                            <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-[#ffdd44] border-2 border-slate-900 text-slate-900 text-xs font-black shadow-[1.5px_1.5px_0px_0px_#1a1a1a]">
+                            <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-[#8be4d6] border-2 border-slate-900 text-slate-900 text-xs font-black shadow-[1.5px_1.5px_0px_0px_#1a1a1a]">
                                 1
                             </div>
                             <span class="text-xs sm:text-sm font-extrabold text-slate-900">Lengkapi Data</span>
@@ -49,19 +49,19 @@
                     </div>
                 </div>
 
-                <!-- Form Content -->
-                <div id="payment-form-content" class="flex-1 p-5 sm:p-6 overflow-y-auto overscroll-contain bg-white">
-                    <p class="text-xs font-semibold text-slate-600 sm:hidden mb-4">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
+                <!-- Form Content Krem -->
+                <div id="payment-form-content" class="flex-1 p-5 sm:p-6 overflow-y-auto overscroll-contain bg-[#faf8ef]">
+                    <p class="text-xs font-bold text-slate-700 sm:hidden mb-4">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
 
                     <div class="space-y-4">
                         <!-- Hidden: Layanan & Total Pembayaran -->
                         <div class="hidden">
                             <label class="block text-xs sm:text-sm font-extrabold text-slate-900">Layanan</label>
-                            <div id="payment-service-name" class="mt-1 block w-full rounded-xl border-2 border-slate-900 bg-slate-50 px-4 py-3 text-sm font-bold text-slate-900"></div>
+                            <div id="payment-service-name" class="mt-1 block w-full rounded-xl border-2 border-slate-900 bg-white px-4 py-3 text-sm font-bold text-slate-900"></div>
                         </div>
                         <div class="hidden">
                             <label class="block text-xs sm:text-sm font-extrabold text-slate-900">Total Pembayaran</label>
-                            <div id="payment-price-display" class="mt-1 block w-full rounded-xl border-2 border-slate-900 bg-slate-50 px-4 py-3 text-sm font-extrabold text-slate-900"></div>
+                            <div id="payment-price-display" class="mt-1 block w-full rounded-xl border-2 border-slate-900 bg-white px-4 py-3 text-sm font-extrabold text-slate-900"></div>
                         </div>
                         <div>
                             <label for="customer-name" class="block text-xs sm:text-sm font-extrabold text-slate-900 mb-1.5">Nama Lengkap <span class="text-red-500">*</span></label>
@@ -77,21 +77,21 @@
                 </div>
 
                 <!-- Loading Overlay -->
-                <div id="payment-loading-overlay" class="hidden flex-1 flex flex-col items-center justify-center p-8 bg-white">
-                    <div class="w-12 h-12 rounded-xl bg-[#ffdd44] border-2 border-slate-900 flex items-center justify-center text-slate-900 font-black shadow-[3px_3px_0px_0px_#1a1a1a] animate-spin mb-4">
+                <div id="payment-loading-overlay" class="hidden flex-1 flex flex-col items-center justify-center p-8 bg-[#faf8ef]">
+                    <div class="w-12 h-12 rounded-xl bg-[#8be4d6] border-2 border-slate-900 flex items-center justify-center text-slate-900 font-black shadow-[3px_3px_0px_0px_#1a1a1a] animate-spin mb-4">
                         <i class="fa-solid fa-spinner text-xl"></i>
                     </div>
                     <p class="text-base font-extrabold text-slate-900">Memproses Data...</p>
-                    <p class="text-xs font-semibold text-slate-600 mt-1">Mohon tunggu sebentar</p>
+                    <p class="text-xs font-bold text-slate-600 mt-1">Mohon tunggu sebentar</p>
                 </div>
 
                 <!-- Footer with Buttons -->
                 <div class="flex flex-row-reverse gap-3 p-5 sm:p-6 border-t-[2.5px] border-slate-900 bg-[#faf8ef] shrink-0">
-                    <button type="button" onclick="processPayment()" id="btn-process-payment" class="flex-1 sm:flex-none inline-flex justify-center items-center gap-2 rounded-xl bg-[#8be4d6] hover:bg-[#78d6c7] border-2 border-slate-900 px-7 py-3 text-sm font-extrabold text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer">
+                    <button type="button" onclick="processPayment()" id="btn-process-payment" class="neo-btn neo-btn-cyan flex-1 sm:flex-none gap-2 px-7 py-3 text-sm">
                         <span>Bayar</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
-                    <button type="button" onclick="closePaymentModal()" class="flex-1 sm:flex-none inline-flex justify-center items-center rounded-xl bg-white hover:bg-slate-100 border-2 border-slate-900 px-6 py-3 text-sm font-extrabold text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer">
+                    <button type="button" onclick="closePaymentModal()" class="neo-btn neo-btn-soft-purple flex-1 sm:flex-none px-6 py-3 text-sm">
                         Batal
                     </button>
                 </div>
@@ -136,12 +136,8 @@
 
         modal.classList.remove('hidden');
 
-        // Lock body scroll (robust for mobile)
-        scrollPosition = window.pageYOffset;
+        // Lock body scroll safely
         document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = '100%';
 
         setTimeout(() => {
             backdrop.classList.remove('opacity-0');
@@ -174,12 +170,8 @@
         setTimeout(() => {
             modal.classList.add('hidden');
 
-            // Unlock body scroll
+            // Unlock body scroll cleanly
             document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            window.scrollTo(0, scrollPosition);
         }, 300);
     }
 

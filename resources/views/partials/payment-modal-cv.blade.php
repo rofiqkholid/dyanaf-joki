@@ -1,7 +1,7 @@
 <!-- Payment Modal CV -->
 <div id="paymentModalCV" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title-cv" role="dialog" aria-modal="true">
     <!-- Backdrop -->
-    <div id="paymentModalCVBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
+    <div id="paymentModalCVBackdrop" class="fixed inset-0 bg-black/50 transition-opacity duration-300 opacity-0"></div>
 
     <div class="fixed inset-0 z-10 overflow-y-auto overscroll-contain">
         <!-- Mobile: Full screen | Desktop: Centered -->
@@ -225,11 +225,12 @@
                 </div>
 
                 <!-- Footer with Buttons -->
-                <div id="cv-form-footer" class="flex flex-row-reverse gap-3 p-4 sm:p-6 border-t border-gray-100 bg-gray-50 shrink-0">
-                    <button type="button" onclick="processPaymentCV()" id="btn-process-payment-cv" class="flex-1 sm:flex-none inline-flex justify-center items-center rounded-lg gradient-primary px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 cursor-pointer">
-                        Bayar Sekarang
+                <div id="cv-form-footer" class="flex flex-row-reverse gap-3 p-4 sm:p-6 border-t-[2.5px] border-slate-900 bg-[#faf8ef] shrink-0">
+                    <button type="button" onclick="processPaymentCV()" id="btn-process-payment-cv" class="flex-1 sm:flex-none inline-flex justify-center items-center gap-2 rounded-xl bg-[#8be4d6] hover:bg-[#78d6c7] border-2 border-slate-900 px-7 py-3 text-sm font-extrabold text-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer">
+                        <span>Bayar Sekarang</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
-                    <button type="button" onclick="closePaymentModalCV()" class="flex-1 sm:flex-none inline-flex justify-center items-center rounded-lg bg-white px-6 py-2.5 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer">
+                    <button type="button" onclick="closePaymentModalCV()" class="flex-1 sm:flex-none inline-flex justify-center items-center rounded-xl bg-[#d8b4fe] hover:bg-[#c084fc] border-2 border-slate-900 px-6 py-3 text-sm font-extrabold text-slate-900 shadow-[4px_4px_0px_0px_#1a1a1a] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_#1a1a1a] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_0px_#1a1a1a] transition-all duration-100 ease-in-out cursor-pointer">
                         Batal
                     </button>
                 </div>
@@ -280,12 +281,8 @@
 
         modal.classList.remove('hidden');
 
-        // Lock body scroll (robust for mobile)
-        scrollPositionCV = window.pageYOffset;
+        // Lock body scroll safely
         document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPositionCV}px`;
-        document.body.style.width = '100%';
 
         setTimeout(() => {
             backdrop.classList.remove('opacity-0');
@@ -306,12 +303,8 @@
         setTimeout(() => {
             modal.classList.add('hidden');
 
-            // Unlock body scroll
+            // Unlock body scroll cleanly
             document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            window.scrollTo(0, scrollPositionCV);
         }, 300);
     }
 

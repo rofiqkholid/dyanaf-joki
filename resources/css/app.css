@@ -21,7 +21,7 @@
 @layer base {
     html {
         scroll-behavior: smooth;
-        background-color: #2b3a4b;
+        background-color: #faf8ef !important;
         /* Overlay scrollbar - doesn't affect layout */
         scrollbar-gutter: stable;
         overflow-y: scroll;
@@ -30,7 +30,52 @@
     body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background-color: #2b3a4b;
+        background-color: #faf8ef !important;
+    }
+
+    /* Neo-Brutalist Global Button Utilities matching dyanaf-demo */
+    .neo-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #1a1a1a;
+        border-radius: 16px !important;
+        font-weight: 700;
+        box-shadow: 4px 4px 0px 0px #1a1a1a;
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+        cursor: pointer;
+    }
+    .neo-btn:hover {
+        transform: translate(-2px, -2px) !important;
+        box-shadow: 6px 6px 0px 0px #1a1a1a !important;
+    }
+    .neo-btn:active {
+        transform: translate(2px, 2px) !important;
+        box-shadow: 2px 2px 0px 0px #1a1a1a !important;
+    }
+    .neo-btn-cyan {
+        background-color: #8be4d6;
+        color: #1a1a1a;
+    }
+    .neo-btn-orange {
+        background-color: #f7a027;
+        color: #1a1a1a;
+    }
+    .neo-btn-pink {
+        background-color: #ff7f9d;
+        color: #1a1a1a;
+    }
+    .neo-btn-yellow {
+        background-color: #ffdd44;
+        color: #1a1a1a;
+    }
+    .neo-btn-purple {
+        background-color: #c084fc;
+        color: #1a1a1a;
+    }
+    .neo-btn-soft-purple {
+        background-color: #d8b4fe;
+        color: #1a1a1a;
     }
 
     /* Body background while loading - transparent */
@@ -356,8 +401,8 @@ body:not(.page-loading) footer {
     animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Restore white background after loading */
+/* Restore cream background after loading */
 body:not(.page-loading) {
-    background-color: white !important;
+    background-color: #faf8ef !important;
     transition: background-color 0.3s ease;
 }
