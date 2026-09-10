@@ -7,7 +7,7 @@
 <header class="bg-white border-b-2 border-slate-900 sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex items-center justify-between">
         <!-- Logo Brand -->
-        <a href="/" class="flex items-center gap-2.5 sm:gap-3">
+        <a href="https://www.dyanafs.com" class="flex items-center gap-2.5 sm:gap-3">
             <img src="{{ asset('image/dyanaf-logo-circle.png') }}" alt="Dyanaf Store Logo" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-slate-900 shadow-[3px_3px_0px_0px_#1a1a1a] object-cover">
             <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900">
                 Dyanaf Store
