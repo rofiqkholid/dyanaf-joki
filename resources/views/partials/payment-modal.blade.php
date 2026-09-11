@@ -5,7 +5,7 @@
 
     <div class="fixed inset-0 z-10 flex items-center justify-center p-0 sm:p-4">
         <!-- Modal Panel -->
-        <div id="paymentModalPanel" class="relative w-full h-full sm:h-auto sm:max-h-[90vh] sm:max-w-xl sm:rounded-[24px] bg-[#faf8ef] border-[3px] border-slate-900 text-left shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out -translate-y-10 opacity-0 flex flex-col overflow-hidden">
+        <div id="paymentModalPanel" class="relative w-full h-full sm:h-auto sm:max-h-[90vh] sm:max-w-xl rounded-none sm:rounded-[24px] bg-[#faf8ef] border-0 sm:border-[3px] border-slate-900 text-left shadow-none sm:shadow-[8px_8px_0px_0px_#1a1a1a] transition-all duration-300 ease-out -translate-y-10 opacity-0 flex flex-col overflow-hidden">
 
                 <!-- Header Kuning Warm Neo-brutalist -->
                 <div class="flex items-center justify-between p-5 sm:p-6 border-b-[2.5px] border-slate-900 bg-[#ffdd44] shrink-0">
