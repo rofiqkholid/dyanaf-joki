@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 fadeTimer = setTimeout(() => {
                     neoLoader.style.display = 'none';
                 }, 1000);
-            }, 2500);
+            }, 1000);
         });
     }
 
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('dyanaf_lang', lang);
     }
 
-    function triggerLoader(callback, duration = 2500) {
+    function triggerLoader(callback, duration = 1000) {
         if (neoLoader) {
             neoLoader.style.display = 'flex';
             neoLoader.classList.remove('fade-out');
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             triggerLoader(() => {
                 setLanguage(selectedLang);
                 showToastMsg(selectedLang === 'en' ? 'Language switched to English' : 'Bahasa diubah ke Indonesia');
-            }, 2500);
+            }, 1000);
         });
     });
 

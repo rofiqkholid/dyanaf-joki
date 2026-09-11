@@ -311,6 +311,17 @@
         }, 300);
     }
 
+    // Support for CV data-attribute based buttons (using Event Delegation for Swup compatibility)
+    document.addEventListener('click', function(e) {
+        const payButtonCV = e.target.closest('#pay-button-cv');
+        if (payButtonCV && payButtonCV.dataset.serviceName) {
+            e.preventDefault();
+            const serviceName = payButtonCV.dataset.serviceName;
+            const servicePrice = parseInt(payButtonCV.dataset.servicePrice);
+            triggerPaymentCV(serviceName, servicePrice);
+        }
+    });
+
     function validateCVForm() {
         let isValid = true;
 

@@ -142,7 +142,7 @@
                     setTimeout(() => {
                         neoLoader.style.display = 'none';
                     }, 1000);
-                }, 2500);
+                }, 1000);
             }
 
             // Smooth scroll for hash anchor links only

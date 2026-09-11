@@ -146,15 +146,14 @@
         }, 10);
     }
 
-    // Support for data-attribute based buttons (fixes IDE lint errors)
-    document.addEventListener('DOMContentLoaded', function() {
-        const payButton = document.getElementById('pay-button');
+    // Support for data-attribute based buttons (using Event Delegation for Swup compatibility)
+    document.addEventListener('click', function(e) {
+        const payButton = e.target.closest('#pay-button');
         if (payButton && payButton.dataset.serviceName) {
-            payButton.addEventListener('click', function() {
-                const serviceName = this.dataset.serviceName;
-                const servicePrice = parseInt(this.dataset.servicePrice);
-                triggerPayment(serviceName, servicePrice);
-            });
+            e.preventDefault();
+            const serviceName = payButton.dataset.serviceName;
+            const servicePrice = parseInt(payButton.dataset.servicePrice);
+            triggerPayment(serviceName, servicePrice);
         }
     });
 
