@@ -1,5 +1,10 @@
 import './bootstrap';
 import './translations';
+import Swup from 'swup';
+
+const swup = new Swup({
+    containers: ['#swup']
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const translations = window.dyanafTranslations || {};
@@ -11,6 +16,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const langBtnMobile = document.getElementById('lang-btn-mobile');
     const langDropdownMobile = document.getElementById('lang-dropdown-mobile');
     const langOptions = document.querySelectorAll('.lang-option');
+
+    // Integration with Swup for smooth page transitions using #neo-loader
+    if (neoLoader) {
+        let loaderTimer = null;
+        let fadeTimer = null;
+
+        swup.hooks.on('visit:start', () => {
+            clearTimeout(loaderTimer);
+            clearTimeout(fadeTimer);
+            neoLoader.style.display = 'flex';
+            neoLoader.classList.remove('fade-out');
+        });
+
+        swup.hooks.on('page:view', () => {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            loaderTimer = setTimeout(() => {
+                neoLoader.classList.add('fade-out');
+                fadeTimer = setTimeout(() => {
+                    neoLoader.style.display = 'none';
+                }, 1000);
+            }, 2500);
+        });
+    }
 
     // Toggle dropdowns
     if (langBtnDesktop && langDropdownDesktop) {

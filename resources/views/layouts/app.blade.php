@@ -35,6 +35,8 @@
             transform-box: fill-box;
             transform-origin: center;
             animation: mascot-pop 0.6s infinite ease-in-out;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         .animate-mascot-1 { animation-delay: 0s; }
@@ -121,7 +123,7 @@
     @include('partials.navbar')
 
     <!-- Main Content -->
-    <main class="relative z-10">
+    <main id="swup" class="relative z-10">
         @yield('content')
     </main>
 
