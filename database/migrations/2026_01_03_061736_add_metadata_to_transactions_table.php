@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->json('metadata')->nullable()->after('snap_token');
-        });
+        if (!Schema::hasColumn('transactions', 'metadata')) {
+            Schema::table('transactions', function (Blueprint $table) {
+                $table->json('metadata')->nullable()->after('snap_token');
+            });
+        }
     }
 
     /**
@@ -21,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->dropColumn('metadata');
-        });
+        if (Schema::hasColumn('transactions', 'metadata')) {
+            Schema::table('transactions', function (Blueprint $table) {
+                $table->dropColumn('metadata');
+            });
+        }
     }
 };

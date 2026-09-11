@@ -13,14 +13,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('service_categories', function (Blueprint $table) {
-            $table->string('name_en')->nullable()->after('name');
-            $table->string('description_en')->nullable()->after('description');
+            if (!Schema::hasColumn('service_categories', 'name_en')) {
+                $table->string('name_en')->nullable()->after('name');
+            }
+            if (!Schema::hasColumn('service_categories', 'description_en')) {
+                $table->string('description_en')->nullable()->after('description');
+            }
         });
 
         Schema::table('services', function (Blueprint $table) {
-            $table->string('name_en')->nullable()->after('name');
-            $table->string('tag_en')->nullable()->after('tag');
-            $table->string('estimation_en')->nullable()->after('estimation');
+            if (!Schema::hasColumn('services', 'name_en')) {
+                $table->string('name_en')->nullable()->after('name');
+            }
+            if (!Schema::hasColumn('services', 'tag_en')) {
+                $table->string('tag_en')->nullable()->after('tag');
+            }
+            if (!Schema::hasColumn('services', 'estimation_en')) {
+                $table->string('estimation_en')->nullable()->after('estimation');
+            }
         });
 
         // Seed English values into service_categories

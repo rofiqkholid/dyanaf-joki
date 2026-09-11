@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->string('payment_method')->nullable()->after('status');
-        });
+        if (!Schema::hasColumn('transactions', 'payment_method')) {
+            Schema::table('transactions', function (Blueprint $table) {
+                $table->string('payment_method')->nullable()->after('status');
+            });
+        }
     }
 
     /**
@@ -21,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->dropColumn('payment_method');
-        });
+        if (Schema::hasColumn('transactions', 'payment_method')) {
+            Schema::table('transactions', function (Blueprint $table) {
+                $table->dropColumn('payment_method');
+            });
+        }
     }
 };
