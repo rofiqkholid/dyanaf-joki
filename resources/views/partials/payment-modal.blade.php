@@ -212,7 +212,7 @@
         if (footer) footer.classList.add('hidden');
         loadingOverlay.classList.remove('hidden');
 
-        // Wait 1.5 seconds then show payment modal
+        // Short 200ms feedback delay then show payment modal
         setTimeout(() => {
             // Reset - show form and footer, hide loading
             formContent.classList.remove('hidden');
@@ -226,9 +226,9 @@
             if (typeof showCustomPaymentModal === 'function') {
                 setTimeout(() => {
                     showCustomPaymentModal(currentServiceName, currentPrice, customerName, customerPhone);
-                }, 300);
+                }, 50);
             }
-        }, 1500);
+        }, 200);
     }
 
     function handlePaymentSuccess(orderId) {

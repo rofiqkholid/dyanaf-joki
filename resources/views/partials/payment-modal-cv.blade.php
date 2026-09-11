@@ -434,7 +434,7 @@
                     // Store order ID for later use
                     activeCVOrderId = data.order_id;
 
-                    // Wait a bit then show payment modal
+                    // Short feedback delay then show payment modal
                     setTimeout(() => {
                         // Reset - show form and footer, hide loading
                         formContent.classList.remove('hidden');
@@ -448,13 +448,13 @@
                         if (typeof showCustomPaymentModalCV === 'function') {
                             setTimeout(() => {
                                 showCustomPaymentModalCV(currentCVServiceName, currentCVPrice, customerName, customerPhone, activeCVOrderId);
-                            }, 300);
+                            }, 50);
                         } else if (typeof showCustomPaymentModal === 'function') {
                             setTimeout(() => {
                                 showCustomPaymentModal(currentCVServiceName, currentCVPrice, customerName, customerPhone, activeCVOrderId);
-                            }, 300);
+                            }, 50);
                         }
-                    }, 500);
+                    }, 150);
                 } else {
                     // Reset UI on error
                     formContent.classList.remove('hidden');
