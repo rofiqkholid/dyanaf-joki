@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 neoLoader.classList.add('fade-out');
                 fadeTimer = setTimeout(() => {
                     neoLoader.style.display = 'none';
-                }, 1000);
+                }, 400);
             }, 1000);
         });
     }
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 neoLoader.classList.add('fade-out');
                 setTimeout(() => {
                     neoLoader.style.display = 'none';
-                }, 1000);
+                }, 400);
             }, duration);
         } else {
             if (typeof callback === 'function') callback();

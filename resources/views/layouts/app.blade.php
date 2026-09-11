@@ -17,7 +17,7 @@
 
     <style>
         #neo-loader {
-            transition: opacity 1s ease-out, visibility 1s ease-out;
+            transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
         }
         #neo-loader.fade-out {
             opacity: 0;
@@ -141,7 +141,7 @@
                     if (bgDoodles) bgDoodles.classList.add('doodles-active');
                     setTimeout(() => {
                         neoLoader.style.display = 'none';
-                    }, 1000);
+                    }, 400);
                 }, 1000);
             }
 
