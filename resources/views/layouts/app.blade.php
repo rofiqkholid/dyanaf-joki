@@ -172,31 +172,12 @@
                 };
 
                 if (document.readyState === 'complete') {
-                    setTimeout(hideLoader, 400);
+                    setTimeout(hideLoader, 200);
                 } else {
-                    window.addEventListener('load', () => setTimeout(hideLoader, 400));
-                    setTimeout(hideLoader, 1000);
+                    window.addEventListener('load', () => setTimeout(hideLoader, 200));
+                    setTimeout(hideLoader, 500);
                 }
             }
-
-            // Handle internal link navigation loader
-            document.addEventListener('click', function(e) {
-                const link = e.target.closest('a');
-
-                if (link &&
-                    link.href &&
-                    link.href.startsWith(window.location.origin) &&
-                    !link.href.includes('#') &&
-                    !link.hasAttribute('target') &&
-                    !link.href.startsWith('mailto:') &&
-                    !link.href.startsWith('tel:')) {
-
-                    if (link.href !== window.location.href && neoLoader) {
-                        neoLoader.style.display = 'flex';
-                        neoLoader.classList.remove('fade-out');
-                    }
-                }
-            });
         });
     </script>
 
