@@ -2,6 +2,7 @@
 <html lang="id">
 
 <head>
+    <script>window.__loaderStartTime = performance.now();</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -16,7 +17,7 @@
 
     <style>
         #neo-loader {
-            transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+            transition: opacity 1s ease-out, visibility 1s ease-out;
         }
         #neo-loader.fade-out {
             opacity: 0;
@@ -133,16 +134,13 @@
             const bgDoodles = document.getElementById('bg-doodles');
 
             if (neoLoader) {
-                const hideLoader = () => {
+                setTimeout(() => {
                     neoLoader.classList.add('fade-out');
                     if (bgDoodles) bgDoodles.classList.add('doodles-active');
                     setTimeout(() => {
                         neoLoader.style.display = 'none';
-                    }, 400);
-                };
-
-                // Fixed 0.8s (800ms) loader display on page load/refresh
-                setTimeout(hideLoader, 800);
+                    }, 1000);
+                }, 2500);
             }
 
             // Smooth scroll for hash anchor links only
