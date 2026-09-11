@@ -169,6 +169,9 @@
         modal.classList.remove('hidden');
 
         // Lock scroll safely
+        document.documentElement.classList.add('overflow-hidden');
+        document.body.classList.add('overflow-hidden');
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
 
         setTimeout(() => {
@@ -351,6 +354,9 @@ Mohon segera diproses. Terima kasih!`;
             modal.classList.add('hidden');
 
             // Unlock scroll
+            document.documentElement.classList.remove('overflow-hidden');
+            document.body.classList.remove('overflow-hidden');
+            document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
 
             // Stop countdown

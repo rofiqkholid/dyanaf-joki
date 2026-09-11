@@ -53,6 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (dictionary[key]) {
+                el.placeholder = dictionary[key];
+            }
+        });
+
         const langLabel = lang === 'en' ? 'English' : 'Indonesia';
         if (currentLangDesktop) currentLangDesktop.textContent = langLabel;
         if (currentLangMobile) currentLangMobile.textContent = langLabel;

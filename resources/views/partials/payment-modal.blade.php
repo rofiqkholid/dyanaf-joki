@@ -14,8 +14,8 @@
                             <i class="fa-solid fa-credit-card text-base"></i>
                         </div>
                         <div>
-                            <span class="text-xl font-extrabold text-slate-900" id="modal-title">Lengkapi Data</span>
-                            <p class="text-xs font-bold text-slate-800 hidden sm:block">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
+                            <span class="text-xl font-extrabold text-slate-900" id="modal-title" data-i18n="payment_complete_data">Lengkapi Data</span>
+                            <p class="text-xs font-bold text-slate-800 hidden sm:block" data-i18n="payment_fill_data_info">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
                         </div>
                     </div>
                     <button type="button" onclick="closePaymentModal()" class="w-9 h-9 rounded-xl bg-white border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 hover:bg-slate-100 flex items-center justify-center font-black cursor-pointer transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none">
@@ -31,7 +31,7 @@
                             <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-[#8be4d6] border-2 border-slate-900 text-slate-900 text-xs font-black shadow-[1.5px_1.5px_0px_0px_#1a1a1a]">
                                 1
                             </div>
-                            <span class="text-xs sm:text-sm font-extrabold text-slate-900">Lengkapi Data</span>
+                            <span class="text-xs sm:text-sm font-extrabold text-slate-900" data-i18n="payment_step1">Lengkapi Data</span>
                         </div>
 
                         <!-- Connector Line -->
@@ -42,34 +42,34 @@
                             <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-slate-200 border-2 border-slate-900 text-slate-500 text-xs font-bold">
                                 2
                             </div>
-                            <span class="text-xs sm:text-sm font-bold text-slate-500">Metode Pembayaran</span>
+                            <span class="text-xs sm:text-sm font-bold text-slate-500" data-i18n="payment_step2">Metode Pembayaran</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Form Content Krem -->
                 <div id="payment-form-content" class="flex-1 p-5 sm:p-6 overflow-y-auto overscroll-contain bg-[#faf8ef]">
-                    <p class="text-xs font-bold text-slate-700 sm:hidden mb-4">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
+                    <p class="text-xs font-bold text-slate-700 sm:hidden mb-4" data-i18n="payment_fill_data_info">Mohon lengkapi data berikut untuk melanjutkan pembayaran.</p>
 
                     <div class="space-y-4">
                         <!-- Hidden: Layanan & Total Pembayaran -->
                         <div class="hidden">
-                            <label class="block text-xs sm:text-sm font-extrabold text-slate-900">Layanan</label>
+                            <label class="block text-xs sm:text-sm font-extrabold text-slate-900" data-i18n="payment_service_label">Layanan</label>
                             <div id="payment-service-name" class="mt-1 block w-full rounded-xl border-2 border-slate-900 bg-white px-4 py-3 text-sm font-bold text-slate-900"></div>
                         </div>
                         <div class="hidden">
-                            <label class="block text-xs sm:text-sm font-extrabold text-slate-900">Total Pembayaran</label>
+                            <label class="block text-xs sm:text-sm font-extrabold text-slate-900" data-i18n="payment_total_label">Total Pembayaran</label>
                             <div id="payment-price-display" class="mt-1 block w-full rounded-xl border-2 border-slate-900 bg-white px-4 py-3 text-sm font-extrabold text-slate-900"></div>
                         </div>
                         <div>
-                            <label for="customer-name" class="block text-xs sm:text-sm font-extrabold text-slate-900 mb-1.5">Nama Lengkap <span class="text-red-500">*</span></label>
-                            <input type="text" id="customer-name" class="block w-full rounded-xl border-2 border-slate-900 px-4 py-3 text-sm font-bold text-slate-900 bg-white shadow-[3px_3px_0px_0px_#1a1a1a] focus:ring-0 focus:outline-none placeholder:text-slate-400 font-sans" placeholder="Masukkan nama anda">
-                            <p class="mt-1.5 text-xs font-extrabold text-red-500 hidden" id="name-error">Nama wajib diisi</p>
+                            <label for="customer-name" class="block text-xs sm:text-sm font-extrabold text-slate-900 mb-1.5"><span data-i18n="payment_full_name">Nama Lengkap</span> <span class="text-red-500">*</span></label>
+                            <input type="text" id="customer-name" class="block w-full rounded-xl border-2 border-slate-900 px-4 py-3 text-sm font-bold text-slate-900 bg-white shadow-[3px_3px_0px_0px_#1a1a1a] focus:ring-0 focus:outline-none placeholder:text-slate-400 font-sans" placeholder="Masukkan nama anda" data-i18n-placeholder="payment_name_placeholder">
+                            <p class="mt-1.5 text-xs font-extrabold text-red-500 hidden" id="name-error" data-i18n="payment_name_error">Nama wajib diisi</p>
                         </div>
                         <div>
-                            <label for="customer-phone" class="block text-xs sm:text-sm font-extrabold text-slate-900 mb-1.5">Nomor yang bisa dihubungi: WhatsApp, dll. <span class="text-red-500">*</span></label>
-                            <input type="tel" id="customer-phone" class="block w-full rounded-xl border-2 border-slate-900 px-4 py-3 text-sm font-bold text-slate-900 bg-white shadow-[3px_3px_0px_0px_#1a1a1a] focus:ring-0 focus:outline-none placeholder:text-slate-400 font-sans" placeholder="08xxxxxxxxxx">
-                            <p class="mt-1.5 text-xs font-extrabold text-red-500 hidden" id="phone-error">Nomor WhatsApp wajib diisi</p>
+                            <label for="customer-phone" class="block text-xs sm:text-sm font-extrabold text-slate-900 mb-1.5"><span data-i18n="payment_phone_label">Nomor yang bisa dihubungi: WhatsApp, dll.</span> <span class="text-red-500">*</span></label>
+                            <input type="tel" id="customer-phone" class="block w-full rounded-xl border-2 border-slate-900 px-4 py-3 text-sm font-bold text-slate-900 bg-white shadow-[3px_3px_0px_0px_#1a1a1a] focus:ring-0 focus:outline-none placeholder:text-slate-400 font-sans" placeholder="08xxxxxxxxxx" data-i18n-placeholder="payment_phone_placeholder">
+                            <p class="mt-1.5 text-xs font-extrabold text-red-500 hidden" id="phone-error" data-i18n="payment_phone_error">Nomor WhatsApp wajib diisi</p>
                         </div>
                     </div>
                 </div>
@@ -79,17 +79,17 @@
                     <div class="w-12 h-12 rounded-xl bg-[#8be4d6] border-2 border-slate-900 flex items-center justify-center text-slate-900 font-black shadow-[3px_3px_0px_0px_#1a1a1a] animate-spin mb-4">
                         <i class="fa-solid fa-spinner text-xl"></i>
                     </div>
-                    <p class="text-base font-extrabold text-slate-900">Memproses Data...</p>
-                    <p class="text-xs font-bold text-slate-600 mt-1">Mohon tunggu sebentar</p>
+                    <p class="text-base font-extrabold text-slate-900" data-i18n="payment_processing">Memproses Data...</p>
+                    <p class="text-xs font-bold text-slate-600 mt-1" data-i18n="payment_please_wait">Mohon tunggu sebentar</p>
                 </div>
 
                 <!-- Footer with Buttons -->
                 <div class="flex flex-row-reverse gap-3 p-5 sm:p-6 border-t-[2.5px] border-slate-900 bg-[#faf8ef] shrink-0">
                     <button type="button" onclick="processPayment()" id="btn-process-payment" class="neo-btn neo-btn-cyan flex-1 sm:flex-none gap-2 px-7 py-3 text-sm">
-                        <span>Bayar</span>
+                        <span data-i18n="payment_pay">Bayar</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
-                    <button type="button" onclick="closePaymentModal()" class="neo-btn neo-btn-soft-purple flex-1 sm:flex-none px-6 py-3 text-sm">
+                    <button type="button" onclick="closePaymentModal()" class="neo-btn neo-btn-soft-purple flex-1 sm:flex-none px-6 py-3 text-sm" data-i18n="payment_cancel">
                         Batal
                     </button>
                 </div>
@@ -134,6 +134,9 @@
         modal.classList.remove('hidden');
 
         // Lock body scroll safely
+        document.documentElement.classList.add('overflow-hidden');
+        document.body.classList.add('overflow-hidden');
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
 
         setTimeout(() => {
@@ -168,6 +171,9 @@
             modal.classList.add('hidden');
 
             // Unlock body scroll cleanly
+            document.documentElement.classList.remove('overflow-hidden');
+            document.body.classList.remove('overflow-hidden');
+            document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
         }, 300);
     }

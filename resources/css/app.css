@@ -33,6 +33,13 @@
         background-color: #faf8ef !important;
     }
 
+    html.overflow-hidden,
+    body.overflow-hidden {
+        overflow: hidden !important;
+        height: 100% !important;
+        touch-action: none;
+    }
+
     /* Neo-Brutalist Global Button Utilities matching dyanaf-demo */
     .neo-btn {
         display: inline-flex;

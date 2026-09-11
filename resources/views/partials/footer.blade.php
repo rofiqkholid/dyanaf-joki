@@ -1,4 +1,4 @@
-<footer class="bg-[#faf8ef] border-t-2 border-slate-900 py-12 text-slate-900">
+<footer class="bg-white border-t-2 border-slate-900 py-12 pb-24 sm:pb-16 text-slate-900">
     <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
         <div class="space-y-3">
             <div class="flex items-center gap-3">
@@ -13,18 +13,20 @@
         <div>
             <h4 data-i18n="footer_layanan" class="font-extrabold text-base mb-4">Layanan</h4>
             <ul class="font-sans text-sm space-y-2.5 text-slate-700 font-medium">
-                <li><a href="{{ route('list-jasa') }}" data-i18n="service_web_title" class="hover:text-blue-600 transition-colors">Pembuatan Website</a></li>
-                <li><a href="{{ route('list-jasa') }}" data-i18n="service_cv_title" class="hover:text-blue-600 transition-colors">CV Profesional</a></li>
-                <li><a href="{{ route('list-jasa') }}" data-i18n="service_letter_title" class="hover:text-blue-600 transition-colors">Surat Lamaran</a></li>
-                <li><a href="{{ route('list-jasa') }}" data-i18n="service_design_title" class="hover:text-blue-600 transition-colors">Desain Grafis</a></li>
+                <li><a href="{{ route('list-jasa') }}" data-i18n="service_web_title" class="hover:text-blue-600">Pembuatan Website</a></li>
+                <li><a href="{{ route('list-jasa') }}" data-i18n="service_cv_title" class="hover:text-blue-600">CV Profesional</a></li>
+                <li><a href="{{ route('list-jasa') }}" data-i18n="service_letter_title" class="hover:text-blue-600">Surat Lamaran</a></li>
+                <li><a href="{{ route('list-jasa') }}" data-i18n="service_design_title" class="hover:text-blue-600">Desain Grafis</a></li>
             </ul>
         </div>
 
         <div>
             <h4 data-i18n="footer_perusahaan" class="font-extrabold text-base mb-4">Perusahaan</h4>
             <ul class="font-sans text-sm space-y-2.5 text-slate-700 font-medium">
-                <li><a href="{{ route('list-jasa') }}" data-i18n="nav_services" class="hover:text-blue-600 transition-colors">Layanan & Harga</a></li>
-                <li><a href="https://wa.me/6285881721193" target="_blank" data-i18n="btn_contact_us" class="hover:text-blue-600 transition-colors">Hubungi Kami</a></li>
+                <li><a href="{{ route('home') }}#tim" data-i18n="nav_about" class="hover:text-blue-600">Tentang Kami</a></li>
+                <li><a href="{{ route('list-jasa') }}" data-i18n="nav_services" class="hover:text-blue-600">Portfolio</a></li>
+                <li><a href="{{ route('home') }}#harga" data-i18n="testi_title" class="hover:text-blue-600">Testimoni</a></li>
+                <li><a href="https://wa.me/6285881721193" target="_blank" data-i18n="footer_hubungi" class="hover:text-blue-600">Kontak</a></li>
             </ul>
         </div>
 

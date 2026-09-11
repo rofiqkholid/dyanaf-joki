@@ -14,8 +14,8 @@
                         <i class="fa-solid fa-credit-card text-base"></i>
                     </div>
                     <div>
-                        <span class="text-xl font-extrabold text-slate-900" id="custom-payment-title">Metode Pembayaran</span>
-                        <p class="text-xs font-semibold text-slate-600 hidden sm:block">Pilih metode pembayaran favorit Anda.</p>
+                        <span class="text-xl font-extrabold text-slate-900" id="custom-payment-title" data-i18n="payment_step2">Metode Pembayaran</span>
+                        <p class="text-xs font-semibold text-slate-600 hidden sm:block" data-i18n="payment_select_method_info">Pilih metode pembayaran favorit Anda.</p>
                     </div>
                 </div>
                 <button type="button" onclick="closeCustomPaymentModal()" class="w-9 h-9 rounded-xl bg-white border-2 border-slate-900 shadow-[2px_2px_0px_0px_#1a1a1a] text-slate-900 hover:bg-slate-100 flex items-center justify-center font-black cursor-pointer transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none">
@@ -31,7 +31,7 @@
                         <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-[#8be4d6] border-2 border-slate-900 text-slate-900 text-xs font-black shadow-[1.5px_1.5px_0px_0px_#1a1a1a]">
                             <i class="fa-solid fa-check text-xs"></i>
                         </div>
-                        <span class="text-xs sm:text-sm font-bold text-slate-500">Lengkapi Data</span>
+                        <span class="text-xs sm:text-sm font-bold text-slate-500" data-i18n="payment_step1">Lengkapi Data</span>
                     </div>
 
                     <!-- Connector Line -->
@@ -42,7 +42,7 @@
                         <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-[#ffdd44] border-2 border-slate-900 text-slate-900 text-xs font-black shadow-[1.5px_1.5px_0px_0px_#1a1a1a]">
                             2
                         </div>
-                        <span class="text-xs sm:text-sm font-extrabold text-slate-900">Metode Pembayaran</span>
+                        <span class="text-xs sm:text-sm font-extrabold text-slate-900" data-i18n="payment_step2">Metode Pembayaran</span>
                     </div>
                 </div>
             </div>
@@ -51,11 +51,11 @@
             <div class="px-4 py-3 sm:px-6 sm:py-4 bg-[#ffdd44] border-b-[2.5px] border-slate-900 text-slate-900">
                 <div class="grid grid-cols-2 gap-2 sm:gap-4">
                     <div>
-                        <p class="text-[10px] sm:text-xs font-bold text-slate-800 mb-0.5 sm:mb-1">Layanan</p>
+                        <p class="text-[10px] sm:text-xs font-bold text-slate-800 mb-0.5 sm:mb-1" data-i18n="payment_service_label">Layanan</p>
                         <p class="text-sm sm:text-base font-black text-slate-900" id="custom-service-name"></p>
                     </div>
                     <div class="text-right">
-                        <p class="text-[10px] sm:text-xs font-bold text-slate-800 mb-0.5 sm:mb-1">Total Pembayaran</p>
+                        <p class="text-[10px] sm:text-xs font-bold text-slate-800 mb-0.5 sm:mb-1" data-i18n="payment_total_label">Total Pembayaran</p>
                         <p class="text-base sm:text-xl font-black text-slate-900" id="custom-price-display"></p>
                     </div>
                 </div>
@@ -262,6 +262,9 @@
         modal.classList.remove('hidden');
 
         // Lock body scroll safely
+        document.documentElement.classList.add('overflow-hidden');
+        document.body.classList.add('overflow-hidden');
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
 
         setTimeout(() => {
@@ -375,6 +378,8 @@
             modal.classList.add('hidden');
 
             // Unlock body scroll cleanly
+            document.documentElement.classList.remove('overflow-hidden');
+            document.body.classList.remove('overflow-hidden');
             document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
             document.body.style.top = '';

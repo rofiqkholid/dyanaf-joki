@@ -279,6 +279,9 @@
         modal.classList.remove('hidden');
 
         // Lock body scroll safely
+        document.documentElement.classList.add('overflow-hidden');
+        document.body.classList.add('overflow-hidden');
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
 
         setTimeout(() => {
@@ -301,6 +304,9 @@
             modal.classList.add('hidden');
 
             // Unlock body scroll cleanly
+            document.documentElement.classList.remove('overflow-hidden');
+            document.body.classList.remove('overflow-hidden');
+            document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
         }, 300);
     }

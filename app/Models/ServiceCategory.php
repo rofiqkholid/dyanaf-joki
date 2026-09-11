@@ -12,7 +12,9 @@ class ServiceCategory extends Model
 
     protected $fillable = [
         'name',
+        'name_en',
         'description',
+        'description_en',
         'icon',
         'order',
         'is_active',
