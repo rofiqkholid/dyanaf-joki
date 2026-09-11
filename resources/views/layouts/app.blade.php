@@ -178,6 +178,21 @@
                     setTimeout(hideLoader, 500);
                 }
             }
+
+            // Smooth scroll for hash anchor links only
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href');
+                    if (targetId && targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            e.preventDefault();
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                            history.pushState(null, '', window.location.pathname + window.location.search + targetId);
+                        }
+                    }
+                });
+            });
         });
     </script>
 
